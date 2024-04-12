@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_print_string.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 17:31:54 by apetitco          #+#    #+#             */
-/*   Updated: 2024/02/29 22:42:41 by apetitco         ###   ########.fr       */
+/*   Created: 2024/01/15 14:25:49 by apetitco          #+#    #+#             */
+/*   Updated: 2024/04/12 18:00:15 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../include/ft_printf.h"
+#include "../../Libft/include/libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	ft_print_string(char *str)
 {
-	while (lst)
+	int	i;
+
+	i = 0;
+	if (str == NULL)
 	{
-		f(lst->content);
-		lst = lst->next;
+		ft_putstr_fd("(null)", 1);
+		return (6);
 	}
+	while (str[i])
+		i += write(1, &str[i], 1);
+	return (i);
 }

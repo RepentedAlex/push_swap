@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacks.h                                           :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 17:05:10 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/12 18:43:26 by apetitco         ###   ########.fr       */
+/*   Created: 2024/04/12 17:08:30 by apetitco          #+#    #+#             */
+/*   Updated: 2024/04/12 18:10:15 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACKS_H
-# define STACKS_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-typedef struct s_stack
-{
-	int				value;
-	struct s_stack	*next;
-}					t_stack;
+# include <stdbool.h>
 
-t_stack	**init_stack_a(int argc, char *argv[]);
-t_stack	**init_stack_b(int argc);
+enum e_bool{no, yes};
 
 #endif
