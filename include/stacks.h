@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 17:05:10 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/12 18:43:26 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/04/18 19:40:25 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-t_stack	**init_stack_a(int argc, char *argv[]);
-t_stack	**init_stack_b(int argc);
+t_stack	*init_stack_a(int argc, char *argv[]);
+t_stack	*init_stack_b(int argc);
 
 #endif

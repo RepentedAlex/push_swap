@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:13:22 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/12 18:43:31 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/04/18 19:51:20 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,38 +49,26 @@ static t_stack	*ft_lstnew(int content)
 	return (new);
 }
 
-t_stack	**init_stack_a(int argc, char *argv[])
+t_stack	*init_stack_a(int argc, char *argv[])
 {
 	int		i;
-	t_stack	**head;
+	t_stack	*head;
+	t_stack *last;
 	t_stack	*node;
 
 	i = 1;
+	last = NULL;
 	while (i <= argc)
 	{
 		node = ft_lstnew(ft_atoi(argv[i]));
-		if (i == 1)
-			head = &node;
-		ft_lstadd_back(head, node);
+		if (last)
+			last->next = node;
+		else 
+			head = node;	
+		last = node;
 		i++;
 	}
 	return (head);
 }
 
-t_stack	**init_stack_b(int argc)
-{
-	int		i;
-	t_stack	**head;
-	t_stack	*node;
-
-	i = 1;
-	while (i <= argc)
-	{
-		node = ft_lstnew(0);
-		if (i == 1)
-			head = &node;
-		ft_lstadd_back(head, node);
-		i++;
-	}
-	return (head);
-}
+// make 

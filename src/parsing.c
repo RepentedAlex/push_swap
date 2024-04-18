@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 16:56:15 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/12 19:08:28 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/04/18 19:50:43 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../include/parsing.h"
 #include "../include/push_swap.h"
 
-static enum e_bool	is_ascii_num(char *str)
+static bool	is_ascii_num(char *str)
 {
 	size_t	i;
 
@@ -24,12 +24,12 @@ static enum e_bool	is_ascii_num(char *str)
 		if ((i == 0 && str[i] == '-') || (str[i] >= '0' && str[i] <= '9'))
 			i++;
 		else
-			return (no);
+			return (false);
 	}	
-	return (yes);
+	return (true);
 }
 
-static enum e_bool	check_duplicates(int argc, char *array)
+static bool	check_duplicates(int argc, char **array)
 {
 	int	i;
 	int	j;
@@ -42,26 +42,26 @@ static enum e_bool	check_duplicates(int argc, char *array)
 		{
 			//TO-DO: CONVERTIR ASCII EN INT POUR POUVOIR CHECKER LES DOUBLONS
 			if (ft_atoi(array[i]) == ft_atoi(array[j]))
-				return (yes);
+				return (true);
 			j++;
 		}
 		i++;
 	}
-	return (no);
+	return (false);
 }
 
-enum e_bool	valid_command(int argc, char *argv[])
+bool	valid_command(int argc, char *argv[])
 {
 	int	i;
 
 	i = 1;
 	while (i <= argc)
 	{
-		if (is_ascii_num(argv[i]) == no)
-			return (no);
+		if (is_ascii_num(argv[i]) == false)
+			return (false);
 		i++;
 	}
-	if (check_duplicates(argc - 1, argv[i]) == yes)
-		return (no);
-	return (yes);
+	if (check_duplicates(argc - 1, argv) == true)
+		return (false);
+	return (true);
 }

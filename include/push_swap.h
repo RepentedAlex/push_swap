@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 17:08:30 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/12 18:10:15 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/04/18 19:39:45 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 # define PUSH_SWAP_H
 
 # include <stdbool.h>
-
-enum e_bool{no, yes};
 
 #endif
