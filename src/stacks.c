@@ -6,13 +6,27 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:13:22 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/18 19:51:20 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/04/30 17:38:14 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Libft/include/libft.h"
-#include "../include/stacks.h"
-#include <unistd.h>
+#include "libft.h"
+#include "stacks.h"
+
+int	ft_lstsize(t_stack *stack)
+{
+	int	size;
+
+	if (stack == NULL)
+		return (0);
+	size = 0;
+	while (stack != NULL)
+	{
+		stack = stack->next;
+		size++;
+	}
+	return (size);
+}
 
 t_stack	*ft_lstlast(t_stack *lst)
 {
@@ -37,7 +51,7 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 		tail->next = new;
 }
 
-static t_stack	*ft_lstnew(int content)
+t_stack	*ft_lstnew(int content)
 {
 	t_stack	*new;
 
@@ -49,11 +63,35 @@ static t_stack	*ft_lstnew(int content)
 	return (new);
 }
 
+void	ft_lstiter(t_stack *lst, void (*f)(int))
+{
+	while (lst)
+	{
+		f(lst->value);
+		lst = lst->next;
+	}
+}
+
+void	ft_stclear(t_stack **lst)
+{
+	t_stack	*temp;
+
+	if (!lst)
+		return ;
+	temp = NULL;
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		free(*lst);
+		*lst = temp;
+	}
+}
+
 t_stack	*init_stack_a(int argc, char *argv[])
 {
 	int		i;
 	t_stack	*head;
-	t_stack *last;
+	t_stack	*last;
 	t_stack	*node;
 
 	i = 1;
@@ -63,12 +101,10 @@ t_stack	*init_stack_a(int argc, char *argv[])
 		node = ft_lstnew(ft_atoi(argv[i]));
 		if (last)
 			last->next = node;
-		else 
-			head = node;	
+		else
+			head = node;
 		last = node;
 		i++;
 	}
 	return (head);
 }
-
-// make 

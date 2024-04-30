@@ -6,14 +6,14 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:51:12 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/12 17:59:22 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:34:33 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "../../Libft/include/libft.h"
+# include "libft.h"
 # include <stdarg.h>
 # include <stdint.h>
 # include <unistd.h>

@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 16:56:15 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/18 19:50:43 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:43:46 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static bool	check_duplicates(int argc, char **array)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i <= argc)
 	{
