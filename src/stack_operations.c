@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alessandropetitcollin <alessandropetitc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 14:35:00 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/30 18:42:49 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/04/30 22:55:47 by alessandrop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,41 @@
 #include "libft.h"
 #include "push_swap.h"
 #include "stacks.h"
-#include <stdio.h>
 
-void	swap(t_stack *stack_a, t_stack *stack_b, t_operations operation)
+static void	rotate_internal(t_stack **stack)
 {
 	t_stack	*nav;
 	int		tmp;
 
+	tmp = stack->value;
+	nav = stack->next;
+	stack->value = nav->value;
+	nav->value = tmp;
+}
+
+void	swap(t_stack *stack_a, t_stack *stack_b, t_operations operation)
+{
 	if (ft_lstsize(stack_a) < 2 || ft_lstsize(stack_b) < 2)
 		return ;
 	ft_printf("s%c\n", (operation == sa) * 'a' + (operation == sb) * 'b' + (operation == ss) * 's');
 	if (operation == sa || operation == ss)
-	{
-		tmp = stack_a->value;
-		nav = stack_a->next;
-		stack_a->value = nav->value;
-		nav->value = tmp;
-	}
+		rotate_internal(stack_a);
 	if (operation == sb || operation == ss)
-	{		
-		tmp = stack_b->value;
-		nav = stack_b->next;
-		stack_b->value = nav->value;
-		nav->value = tmp;
-	}
+		rotate_internal(stack_b);
 	return ;
+}
+
+static void	push_internal(t_stack **stack_a, t_stack **stack_b)
+{
 }
 
 void	push(t_stack *stack_a, t_stack *stack_b, t_operations operation)
 {
-	(void) stack_a;
-	(void) stack_b;	
-	(void) operation;
+	ft_printf("p%c\n", (operation == pa) * 'a' + (operation == pb) * 'b');
+	if (operation == pa)
+		push_internal(stack_a, stack_b);
+	if (operation == pb)
+		push_internal(stack_a, stack_b);
 	return ;
 }
 static void	rotate_internal(t_stack **stack)
