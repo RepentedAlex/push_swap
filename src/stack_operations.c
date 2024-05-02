@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alessandropetitcollin <alessandropetitc    +#+  +:+       +#+        */
+/*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 14:35:00 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/30 22:55:47 by alessandrop      ###   ########.fr       */
+/*   Updated: 2024/05/02 17:21:02 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "push_swap.h"
 #include "stacks.h"
 
-static void	rotate_internal(t_stack **stack)
+static void	swap_internal(t_stack *stack)
 {
 	t_stack	*nav;
 	int		tmp;
@@ -32,23 +32,29 @@ void	swap(t_stack *stack_a, t_stack *stack_b, t_operations operation)
 		return ;
 	ft_printf("s%c\n", (operation == sa) * 'a' + (operation == sb) * 'b' + (operation == ss) * 's');
 	if (operation == sa || operation == ss)
-		rotate_internal(stack_a);
+		swap_internal(stack_a);
 	if (operation == sb || operation == ss)
-		rotate_internal(stack_b);
+		swap_internal(stack_b);
 	return ;
 }
 
-static void	push_internal(t_stack **stack_a, t_stack **stack_b)
+static void	push_internal(t_stack **receiver, t_stack **sender)
 {
+	t_stack	*new_first;
+
+	new_first = (*sender)->next;
+	(*sender)->next = *receiver;
+	*receiver = *sender;
+	*sender = new_first;
 }
 
-void	push(t_stack *stack_a, t_stack *stack_b, t_operations operation)
+void	push_stack(t_stack **stack_a, t_stack **stack_b, t_operations operation)
 {
 	ft_printf("p%c\n", (operation == pa) * 'a' + (operation == pb) * 'b');
 	if (operation == pa)
 		push_internal(stack_a, stack_b);
 	if (operation == pb)
-		push_internal(stack_a, stack_b);
+		push_internal(stack_b, stack_a);
 	return ;
 }
 static void	rotate_internal(t_stack **stack)

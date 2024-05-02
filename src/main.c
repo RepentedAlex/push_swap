@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 16:57:02 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/30 18:39:35 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:21:42 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,27 +54,36 @@ int	main(int argc, char *argv[])
 	stack_b->next->next = ft_lstnew(3 + 4);
 	stack_b->next->next->next = ft_lstnew(4 + 4);
 	debug_stacks(stack_a, stack_b);
-	// ft_printf("\033[0;93mSWAPS\033[0;39m\n");
-	// swap(stack_a, stack_b, sa);
-	// debug_stacks(stack_a, stack_b);
-	// swap(stack_a, stack_b, sb);
-	// debug_stacks(stack_a, stack_b);
-	// swap(stack_a, stack_b, ss);
-	// debug_stacks(stack_a, stack_b);
-	// ft_printf("\n");
-	// ft_printf("\033[0;93mROTATIONS\033[0;39m\n");
-	// rotate(&stack_a, &stack_b, ra);
-	// debug_stacks(stack_a, stack_b);
-	// rotate(&stack_a, &stack_b, rb);
-	// debug_stacks(stack_a, stack_b);
-	// rotate(&stack_a, &stack_b, rr);
-	// debug_stacks(stack_a, stack_b);
+	ft_printf("\033[0;93mSWAPS\033[0;39m\n");
+	swap(stack_a, stack_b, sa);
+	debug_stacks(stack_a, stack_b);
+	swap(stack_a, stack_b, sb);
+	debug_stacks(stack_a, stack_b);
+	swap(stack_a, stack_b, ss);
+	debug_stacks(stack_a, stack_b);
+	ft_printf("\n");
+	ft_printf("\033[0;93mROTATIONS\033[0;39m\n");
+	rotate(&stack_a, &stack_b, ra);
+	debug_stacks(stack_a, stack_b);
+	rotate(&stack_a, &stack_b, rb);
+	debug_stacks(stack_a, stack_b);
+	rotate(&stack_a, &stack_b, rr);
+	debug_stacks(stack_a, stack_b);
 	ft_printf("\033[0;93mREVERSE ROTATIONS\033[0;39m\n");
 	reverse_rotate(&stack_a, &stack_b, rra);
 	debug_stacks(stack_a, stack_b);
 	reverse_rotate(&stack_a, &stack_b, rrb);
 	debug_stacks(stack_a, stack_b);
 	reverse_rotate(&stack_a, &stack_b, rrr);
+	debug_stacks(stack_a, stack_b);
+	ft_printf("\033[0;93mPUSHES\033[0;39m\n");
+	push_stack(&stack_a, &stack_b, pa);
+	debug_stacks(stack_a, stack_b);
+	push_stack(&stack_a, &stack_b, pb);
+	debug_stacks(stack_a, stack_b);
+	push_stack(&stack_a, &stack_b, pb);
+	debug_stacks(stack_a, stack_b);
+	push_stack(&stack_a, &stack_b, pa);
 	debug_stacks(stack_a, stack_b);
 
 	(void)argc;

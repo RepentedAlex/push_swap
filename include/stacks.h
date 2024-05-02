@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 17:05:10 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/30 18:32:24 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/02 16:53:21 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_lstsize(t_stack *stack);
 t_stack	*init_stack_a(int argc, char *argv[]);
 t_stack	*init_stack_b(int argc);
 void	swap(t_stack *stack_a, t_stack *stack_b, t_operations operations);
-void	push(t_stack *stack_a, t_stack *stack_b, t_operations operations);
+void	push_stack(t_stack **stack_a, t_stack **stack_b, t_operations operations);
 void	rotate(t_stack **stack_a, t_stack **stack_b, t_operations operations);
 void	reverse_rotate(t_stack **stack_a, t_stack **stack_b, t_operations operations);
 void	push_swap(t_stack *a, t_stack *b);
