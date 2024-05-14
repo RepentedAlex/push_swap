@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 17:48:08 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/30 15:44:36 by apetitco         ###   ########.fr       */
+/*   Created: 2024/05/07 13:35:38 by apetitco          #+#    #+#             */
+/*   Updated: 2024/05/14 11:43:19 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf/include/ft_printf.h"
+#include "libft.h"
 
-void	exit_handler(int error)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	if (error == 1)
+	size_t	i;
+	int		result;
+
+	i = 0;
+	while (s1[i] || s2[i])
 	{
-		ft_putstr_fd("Wrong command, use as follows:\n", 2);
-		ft_putstr_fd("./push_swap [(-)0-9] [(-)0-9] ...\n", 2);
-		ft_putstr_fd("USE NUMBERS ONLY, I DON'T KNOW HOW TO SORT LETTERS!\n", 2);
-		exit(EXIT_FAILURE);
+		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
+		{
+			result = ((unsigned char *)s1)[i] - ((unsigned char *)s2)[i];
+			return (result);
+		}
+		i++;
 	}
+	return (0);
 }

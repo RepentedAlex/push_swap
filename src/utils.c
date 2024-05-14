@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 16:56:20 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/18 19:40:12 by apetitco         ###   ########.fr       */
+/*   Created: 2024/05/14 14:13:04 by apetitco          #+#    #+#             */
+/*   Updated: 2024/05/14 14:16:23 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#include "push_swap.h"
 
-# include <stdbool.h>
-
-bool	valid_command(int argc, char *argv[]);
-
-#endif
+int	is_sorted(t_stack *stack)
+{
+	int	i;
+	int	len;
+	
+	len = ft_lstsize(stack);
+	if (len > 0)
+	{
+		i = 1;
+		while (i++ < len)
+		{
+			if (stack->value > stack->next->value)
+				return (0);
+			stack = stack->next;
+		}
+		return (1);
+	}
+	return (0);
+}

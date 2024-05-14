@@ -6,17 +6,17 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 21:30:55 by apetitco          #+#    #+#             */
-/*   Updated: 2024/04/12 19:02:57 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/07 13:32:07 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-int	ft_atoi(const char *nptr)
+long long	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	output;
-	int	sign;
+	int			i;
+	long long	output;
+	int			sign;
 
 	i = 0;
 	output = 0;

@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_operations.c                                 :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 14:35:00 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/02 17:21:02 by apetitco         ###   ########.fr       */
+/*   Created: 2024/05/08 13:34:45 by apetitco          #+#    #+#             */
+/*   Updated: 2024/05/08 14:17:19 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 #include "push_swap.h"
-#include "stacks.h"
 
 static void	swap_internal(t_stack *stack)
 {
@@ -28,7 +26,7 @@ static void	swap_internal(t_stack *stack)
 
 void	swap(t_stack *stack_a, t_stack *stack_b, t_operations operation)
 {
-	if (ft_lstsize(stack_a) < 2 || ft_lstsize(stack_b) < 2)
+	if ((ft_lstsize(stack_a) < 2 && operation == sa) || (ft_lstsize(stack_b) < 2 && operation == sb))
 		return ;
 	ft_printf("s%c\n", (operation == sa) * 'a' + (operation == sb) * 'b' + (operation == ss) * 's');
 	if (operation == sa || operation == ss)
@@ -48,14 +46,14 @@ static void	push_internal(t_stack **receiver, t_stack **sender)
 	*sender = new_first;
 }
 
-void	push_stack(t_stack **stack_a, t_stack **stack_b, t_operations operation)
+void push_stack(t_stack **stack_a, t_stack **stack_b, t_operations operation)
 {
 	ft_printf("p%c\n", (operation == pa) * 'a' + (operation == pb) * 'b');
 	if (operation == pa)
 		push_internal(stack_a, stack_b);
 	if (operation == pb)
 		push_internal(stack_b, stack_a);
-	return ;
+	return;
 }
 static void	rotate_internal(t_stack **stack)
 {
@@ -74,7 +72,7 @@ static void	rotate_internal(t_stack **stack)
 void	rotate(t_stack **stack_a, t_stack **stack_b, t_operations operation)
 {	
 	ft_printf("r%c\n", (operation == ra) * 'a' + (operation == rb) * 'b' + (operation == rr) * 'r');
-	if (ft_lstsize(*stack_a) < 2 || ft_lstsize(*stack_b) < 2)
+	if ((ft_lstsize(*stack_a) < 2 && operation == ra) || (ft_lstsize(*stack_b) < 2 && operation == rb))
 		return ;
 	if (operation == ra || operation == rr)
 		rotate_internal(stack_a);
@@ -101,7 +99,7 @@ static void	reverse_rotate_internal(t_stack **stack)
 void	reverse_rotate(t_stack **stack_a, t_stack **stack_b, t_operations operation)
 {
 	ft_printf("rr%c\n", (operation == rra) * 'a' + (operation == rrb) * 'b' + (operation == rrr) * 'r');
-	if (ft_lstsize(*stack_a) < 2 || ft_lstsize(*stack_b) < 2)
+	if ((ft_lstsize(*stack_a) < 2 && operation == rra) || (ft_lstsize(*stack_b) < 2 && operation == rrb))
 		return ;
 	if (operation == rra || operation == rrr)
 		reverse_rotate_internal(stack_a);

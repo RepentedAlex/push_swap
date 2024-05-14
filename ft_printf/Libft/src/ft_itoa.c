@@ -6,13 +6,13 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:08:39 by apetitco          #+#    #+#             */
-/*   Updated: 2024/02/29 22:44:22 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/07 13:34:20 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-static int	ft_get_nb_len(long int n)
+static int	ft_get_nb_len(long long n)
 {
 	int	len;
 
@@ -30,7 +30,7 @@ static int	ft_get_nb_len(long int n)
 	return (len);
 }
 
-static unsigned char	*ft_transcribe_nb(char *dst, long int n, int len)
+static unsigned char	*ft_transcribe_nb(char *dst, long long n, int len)
 {
 	dst[len] = 0;
 	len--;
@@ -57,7 +57,7 @@ static unsigned char	*ft_transcribe_nb(char *dst, long int n, int len)
 	return ((unsigned char *)dst);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long long n)
 {
 	char	*ascii;
 	int		n_len;
