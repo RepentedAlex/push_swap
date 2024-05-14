@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:13:04 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 14:16:23 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:47:00 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	is_sorted(t_stack *stack)
 {
 	int	i;
 	int	len;
-	
+
 	len = ft_lstsize(stack);
 	if (len > 0)
 	{

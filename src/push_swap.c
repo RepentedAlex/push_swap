@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:32:07 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 16:25:44 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:41:31 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(int argc, char *argv[])
 	if (argc == 1)
 		exit(1);
 	quartiles = malloc(sizeof(t_quartiles));
-	 if (!quartiles)
+	if (!quartiles)
 		return (1);
 	error = 0;
 	get_med_qua(useless(argc, argv), &quartiles, &error);
@@ -86,7 +86,6 @@ int	main(int argc, char *argv[])
 			free(quartiles);
 		return (1);
 	}
-	stack_b = NULL;
 	if (init_stack(&stack_a, useless(argc, argv)) == 1)
 		launch_algo(stack_a, stack_b, quartiles);
 	ft_stack_clear(&stack_a);

@@ -6,14 +6,14 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:23:48 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 16:16:44 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:44:06 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ALGO_H
 # define ALGO_H
 
-#include "push_swap.h"
+# include "push_swap.h"
 
 int		check_for_opti(t_stack **stack_a, t_stack **stack_b, int pos_a, int pos_b);
 int		count_moves(t_stack *stack_a, t_stack *stack_b, int best_move);

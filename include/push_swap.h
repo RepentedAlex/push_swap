@@ -6,25 +6,25 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:37:28 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 16:24:43 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:46:01 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <stdbool.h>
-#include <stdlib.h>
-#include <unistd.h>
+# include <stdbool.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-typedef struct		s_stack
+typedef struct s_stack
 {
 	long long		value;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
 
-typedef enum	e_operations
+typedef enum e_operations
 {
 	sa,
 	sb,
@@ -39,8 +39,7 @@ typedef enum	e_operations
 	rrr
 }				t_operations;
 
-
-typedef struct	s_quartiles
+typedef struct s_quartiles
 {
 	int			q1;
 	int			med;
@@ -50,7 +49,7 @@ typedef struct	s_quartiles
 
 int		atoi_check(const char *ptr, int *error);
 void	fill_med_qua(t_quartiles **quartiles, int len, int array[]);
-void free_everything(t_stack **stack_a, t_stack **stack_b, t_quartiles **quartiles);
+void	free_everything(t_stack **stack_a, t_stack **stack_b, t_quartiles **quartiles);
 void	get_med_qua(char **split, t_quartiles **quartiles, int *error);
 int		init_stack(t_stack **stack_a, char **split);
 int		is_sorted(t_stack *stack);
@@ -68,6 +67,6 @@ void	ft_stack_clear(t_stack **stack);
 void	swap(t_stack *stack_a, t_stack *stack_b, t_operations operation);
 
 //! DEBUG !//
-void debug_stacks(t_stack *a, t_stack *b);
+void	debug_stacks(t_stack *a, t_stack *b);
 
 #endif

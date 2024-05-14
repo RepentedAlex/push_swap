@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:03:41 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 16:21:07 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:51:50 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,11 @@ void	launch_algo(t_stack *stack_a, t_stack *stack_b, t_quartiles *quartiles)
 	exit(1);
 }
 
-/**
- * Checks if there is at least one element in the given stack
- * that falls within the range of q1 and q3 (inclusive).
- *
- * @param stack The stack to check.
- * @param q1 The lower bound of the range.
- * @param q3 The upper bound of the range.
- * @return 1 if there is an element within the range, 0 otherwise.
- */
-int inner(t_stack *stack, int q1, int q3)
+int	inner(t_stack *stack, int q1, int q3)
 {
-	t_stack *tmp;
-	int len;
-	int i;
+	t_stack	*tmp;
+	int		len;
+	int		i;
 
 	len = ft_lstsize(stack);
 	i = 0;
@@ -88,7 +79,6 @@ t_stack	*ra_rra(t_stack *stack_a, int pos_a, int i)
 			rotate(&stack_a, NULL, ra);
 			++i;
 		}
-		
 	}
 	else
 	{
@@ -189,48 +179,34 @@ int	get_max(t_stack *stack)
 	return (max);
 }
 
-/**
- * Finds the position to place an element in a stack.
- *
- * @param stack The stack to search in.
- * @param element The element to find the position for.
- * @return The position to place the element in the stack.
- */
-int get_pos_to_place(t_stack *stack, int element)
+int	get_pos_to_place(t_stack *stack, int element)
 {
-	int len;
-	int min;
-	int i;
-	t_stack *node;
+	int		len;
+	int		min;
+	int		i;
+	t_stack	*node;
 
 	min = get_min(stack);
 	if (element > get_max(stack) || element < min)
-		return get_index(stack, min);
+		return (get_index(stack, min));
 	len = ft_lstsize(stack);
 	i = -1;
 	node = stack;
 	while (++i < len)
 	{
 		if (node->prev->value < element && element < node->value)
-			return i;
+			return (i);
 		node = node->next;
 	}
-	return 0;
+	return (0);
 }
 
-/**
- * Calculates the best move for a given stack B element in the push_swap algorithm.
- *
- * @param stack_a The stack A.
- * @param stack_b The stack B.
- * @return The number of moves required to place the given element in stack B.
- */
-int get_best_move(t_stack *stack_a, t_stack *stack_b)
+int	get_best_move(t_stack *stack_a, t_stack *stack_b)
 {
-	int best_element;
-	int best_move;
-	int move_count;
-	t_stack *nav;
+	int		best_element;
+	int		best_move;
+	int		move_count;
+	t_stack	*nav;
 
 	best_element = stack_b->value;
 	best_move = count_moves(stack_a, stack_b, best_element);
@@ -245,7 +221,7 @@ int get_best_move(t_stack *stack_a, t_stack *stack_b)
 		}
 		nav = nav->next;
 	}
-	return best_move;
+	return (best_move);
 }
 
 void	optimize_a(t_stack *stack_a, t_stack *stack_b, t_quartiles *quartiles)
@@ -262,14 +238,7 @@ void	optimize_a(t_stack *stack_a, t_stack *stack_b, t_quartiles *quartiles)
 	exit(1);
 }
 
-/**
- * Optimizes the stack B by moving elements from stack A to stack B based on quartiles.
- * 
- * @param stack_a The stack A.
- * @param stack_b The stack B.
- * @param quartiles The quartiles used for optimization.
- */
-void optimize_b(t_stack *stack_a, t_stack *stack_b, t_quartiles *quartiles)
+void	optimize_b(t_stack *stack_a, t_stack *stack_b, t_quartiles *quartiles)
 {
 	while (inner(stack_a, quartiles->q1, quartiles->q3))
 	{
@@ -295,7 +264,7 @@ void optimize_b(t_stack *stack_a, t_stack *stack_b, t_quartiles *quartiles)
 	}
 	if (!(is_sorted(stack_a)))
 		sort_three(&stack_a, &stack_b);
-	optimize_a(stack_a, stack_b, quartiles);	
+	optimize_a(stack_a, stack_b, quartiles);
 }
 
 void	replace_pile(t_stack **stack)

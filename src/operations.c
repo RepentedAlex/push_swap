@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 13:34:45 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/08 14:17:19 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:49:42 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,21 @@ static void	push_internal(t_stack **receiver, t_stack **sender)
 	*sender = new_first;
 }
 
-void push_stack(t_stack **stack_a, t_stack **stack_b, t_operations operation)
+void	push_stack(t_stack **stack_a, t_stack **stack_b, t_operations operation)
 {
 	ft_printf("p%c\n", (operation == pa) * 'a' + (operation == pb) * 'b');
 	if (operation == pa)
 		push_internal(stack_a, stack_b);
 	if (operation == pb)
 		push_internal(stack_b, stack_a);
-	return;
+	return ;
 }
+
 static void	rotate_internal(t_stack **stack)
 {
 	t_stack	*last;
 	t_stack	*antepenultieme;
-	
+
 	antepenultieme = *stack;
 	while (antepenultieme->next->next != NULL)
 		antepenultieme = antepenultieme->next;
@@ -93,7 +94,7 @@ static void	reverse_rotate_internal(t_stack **stack)
 	nav->next = first;
 	*stack = first->next;
 	first->next = NULL;
-	return;
+	return ;
 }
 
 void	reverse_rotate(t_stack **stack_a, t_stack **stack_b, t_operations operation)

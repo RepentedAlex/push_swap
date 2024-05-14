@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 13:36:04 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 16:26:11 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:50:08 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	new_node(int num, t_stack **node)
 int	add_to_list(t_stack **stack, int num)
 {
 	t_stack	*node;
-	
+
 	if (new_node(num, &node) == -1)
 		return (-1);
 	if ((*stack) == NULL)
@@ -65,8 +65,8 @@ int	init_stack(t_stack **stack_a, char **split)
 			return (-1);
 		free(split[i]);
 	}
-		free(split);
-		return (1);
+	free(split);
+	return (1);
 }
 
 void	ft_lstiter(t_stack *lst, void (*f)(int))
@@ -132,7 +132,7 @@ void	ft_stack_clear(t_stack **stack)
 	}
 }
 
-void free_everything(t_stack **stack_a, t_stack **stack_b, t_quartiles **quartiles)
+void	free_everything(t_stack **stack_a, t_stack **stack_b, t_quartiles **quartiles)
 {
 	ft_stack_clear(stack_a);
 	ft_stack_clear(stack_b);

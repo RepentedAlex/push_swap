@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 17:18:48 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 16:33:14 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:43:28 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,10 @@
 #include "algo.h"
 #include "push_swap.h"
 
-/**
- * Normal
- * * Important
- * ! Deprecated
- * ? Interrogation
- * TODO: refactor
- * //Fait
- * @param myParam Parameter for this function
-*/
-
-/**
- * Check que les arguments passés en CLI sont valides
- * @param ptr Les arguments
- * @param error Flag erreur
-*/
 int	atoi_check(const char *ptr, int *error)
 {
 	char	*tmp;
-	
+
 	if (ft_strlen(ptr) > 11)
 	{
 		*error = 1;
@@ -49,18 +34,11 @@ int	atoi_check(const char *ptr, int *error)
 	return (ft_atoi(ptr));
 }
 
-/**
- * Check s'il y a des doublons dans le tableau et met à jour la structure comportant les quartiles.
- *
- * @param array Le tableau dans lequel la vérification des doublons se fait.
- * @param len La longueur du tableau.
- * @param quartiles Pointeur vers la structure comportant les quartiles.
- */
-static void doublon_check(int array[], int len, t_quartiles **quartiles)
+static void	doublon_check(int array[], int len, t_quartiles **quartiles)
 {
-	int i;
-	int tmp;
-	int l;
+	int	i;
+	int	tmp;
+	int	l;
 
 	i = 0;
 	tmp = array[0];
@@ -78,14 +56,7 @@ static void doublon_check(int array[], int len, t_quartiles **quartiles)
 	fill_med_qua(quartiles, len, array);
 }
 
-/**
- * Calculates the quartiles of an array and fills the corresponding quartile struct.
- *
- * @param quartiles - A pointer to the quartiles struct.
- * @param len - The length of the array.
- * @param array - The array of integers.
- */
-void fill_med_qua(t_quartiles **quartiles, int len, int array[])
+void	fill_med_qua(t_quartiles **quartiles, int len, int array[])
 {
 	if (len % 2 == 0)
 		(*quartiles)->med = len / 2;
@@ -105,13 +76,6 @@ void fill_med_qua(t_quartiles **quartiles, int len, int array[])
 	}
 }
 
-/**
- * Calculates the quartiles of an array of integers obtained from a string split.
- * 
- * @param split The array of strings obtained from splitting a string.
- * @param quartiles A pointer to a t_quartiles struct to store the quartiles.
- * @param error A pointer to an integer to store any error code.
- */
 void	get_med_qua(char **split, t_quartiles **quartiles, int *error)
 {
 	int	len;
@@ -119,7 +83,7 @@ void	get_med_qua(char **split, t_quartiles **quartiles, int *error)
 	int	*array;
 
 	len = 0;
-		while (split[len] && split != NULL)
+	while (split[len] && split != NULL)
 		++len;
 	array = malloc(sizeof(int) * len);
 	if (!array || !split)
@@ -149,14 +113,6 @@ static void	swap_el(int *a, int *b)
 	*b = tmp;
 }
 
-/**
- * Partitions the given array using the last element as the pivot.
- * 
- * @param array The array to be partitioned.
- * @param low The starting index of the partition.
- * @param high The ending index of the partition.
- * @return The index of the pivot element after partitioning.
- */
 static int	partition(int array[], int low, int high)
 {
 	int	pivot;
@@ -179,12 +135,6 @@ static int	partition(int array[], int low, int high)
 	return (i + 1);
 }
 
-/**
- * Effectue un tri à la volée pour savoir comment les valeurs devront être ordonnées
- * @param array Le tableau comportant toutes les valeurs
- * @param low Plus basse valeur
- * @param high Plus haute valeur
-*/
 void	quick_sort(int array[], int low, int high)
 {
 	int	pivot;
@@ -193,7 +143,7 @@ void	quick_sort(int array[], int low, int high)
 	{
 		pivot = partition(array, low, high);
 		quick_sort(array, low, pivot - 1);
-		quick_sort(array, pivot + 1 , high);
+		quick_sort(array, pivot + 1, high);
 	}
 }
 
@@ -202,7 +152,7 @@ void	sort_three(t_stack **to_sort, t_stack **other)
 	t_stack	*tmp;
 	int		min;
 	int		max;
-	
+
 		min = get_min(*to_sort);
 		max = get_max(*to_sort);
 	while (is_sorted(*to_sort) != 1)
