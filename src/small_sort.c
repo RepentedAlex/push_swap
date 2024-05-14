@@ -6,12 +6,13 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 17:18:48 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:07:54 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:36:07 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "algo.h"
+#include "ft_printf.h"
+#include "libft.h"
 #include "push_swap.h"
 
 static void	doublon_check(int array[], int len, t_quartiles **quartiles)
@@ -98,7 +99,7 @@ void	quick_sort(int array[], int low, int high)
 	}
 }
 
-static void	swap_el(int *a, int *b)
+void	swap_el(int *a, int *b)
 {
 	int	tmp;
 

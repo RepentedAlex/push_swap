@@ -6,10 +6,13 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:10:27 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:11:34 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:36:26 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "algo.h"
+#include "ft_printf.h"
+#include "libft.h"
 #include "push_swap.h"
 
 static void	swap_internal(t_stack *stack)

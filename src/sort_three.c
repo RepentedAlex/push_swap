@@ -6,11 +6,13 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:53:48 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:12:42 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:36:40 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
+#include "ft_printf.h"
+#include "libft.h"
 #include "push_swap.h"
 
 void	sort_three(t_stack **to_sort, t_stack **other)

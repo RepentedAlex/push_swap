@@ -6,11 +6,13 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:59:37 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:00:51 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:36:30 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
+#include "ft_printf.h"
+#include "libft.h"
 #include "push_swap.h"
 
 int	get_index(t_stack *stack, int element)

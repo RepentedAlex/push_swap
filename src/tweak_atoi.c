@@ -6,11 +6,13 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:07:06 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:12:30 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:36:09 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
+#include "ft_printf.h"
+#include "libft.h"
 #include "push_swap.h"
 
 int	atoi_check(const char *ptr, int *error)

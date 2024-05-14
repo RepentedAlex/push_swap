@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:23:48 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:10:02 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:38:11 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	insertion_sort(t_stack **stack_a, t_stack **stack_b, int best_move);
 int		get_best_move(t_stack *stack_a, t_stack *stack_b);
 void	optimize_a(t_stack *stack_a, t_stack *stack_b, t_quartiles *quartiles);
 void	optimize_b(t_stack *stack_a, t_stack *stack_b, t_quartiles *quartiles);
+t_stack	*ra_rra(t_stack *stack_a, int pos_a, int i);
 void	replace_pile(t_stack **stack);
 
 #endif

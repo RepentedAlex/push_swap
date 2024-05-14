@@ -6,11 +6,13 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:06:08 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:08:02 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:36:13 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
+#include "ft_printf.h"
+#include "libft.h"
 #include "push_swap.h"
 
 void	fill_med_qua(t_quartiles **quartiles, int len, int array[])

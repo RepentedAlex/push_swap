@@ -6,11 +6,13 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:54:45 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:12:48 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:36:35 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
+#include "ft_printf.h"
+#include "libft.h"
 #include "push_swap.h"
 
 int	count_moves(t_stack *stack_a, t_stack *stack_b, int element)

@@ -6,11 +6,13 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:11:16 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:11:19 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:40:37 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "algo.h"
 #include "ft_printf.h"
+#include "libft.h"
 #include "push_swap.h"
 
 static void	rotate_internal(t_stack **stack)
@@ -69,4 +71,16 @@ t_operations operation)
 	if (operation == rrb || operation == rrr)
 		reverse_rotate_internal(stack_b);
 	return ;
+}
+
+t_stack	*ft_lstlast(t_stack *stack)
+{
+	t_stack	*nav;
+
+	nav = stack;
+	if (!nav)
+		return NULL;
+	while (nav->next != stack && nav != NULL)
+		nav = nav->next;
+	return (nav);
 }

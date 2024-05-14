@@ -6,11 +6,13 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:03:41 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:05:29 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:36:37 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
+#include "ft_printf.h"
+#include "libft.h"
 #include "push_swap.h"
 
 int	check_for_opti(t_stack **stack_a, t_stack **stack_b, int pos_a, int pos_b)
