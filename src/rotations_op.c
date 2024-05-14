@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:11:16 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:40:37 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:42:38 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_stack	*ft_lstlast(t_stack *stack)
 
 	nav = stack;
 	if (!nav)
-		return NULL;
+		return (NULL);
 	while (nav->next != stack && nav != NULL)
 		nav = nav->next;
 	return (nav);

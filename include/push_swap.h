@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:37:28 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:38:30 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:43:01 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_lstiter(t_stack *lst, void (*f)(int));
 t_stack	*ft_lstlast(t_stack *lst);
 t_stack	*ft_lstnew(int content);
 int		ft_lstsize(t_stack *stack);
-int	new_node(int num, t_stack **node);
+int		new_node(int num, t_stack **node);
 void	push_stack(t_stack **stack_a, t_stack **stack_b, \
 t_operations operation);
 void	quick_sort(int array[], int low, int high);
