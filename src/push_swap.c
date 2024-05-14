@@ -6,22 +6,44 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:32:07 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 16:41:31 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:05:39 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "push_swap.h"
 
-/**
- * Normal
- * * Important
- * ! Deprecated
- * ? Interrogation
- * TODO: refactor
- * //Fait
- * @param myParam Parameter for this function
-*/
+int	init_stack(t_stack **stack_a, char **split)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	stack_a = NULL;
+	if (!split)
+		return (-1);
+	while (split[i])
+		i++;
+	while (--i >= 0)
+	{
+		j = add_to_list(stack_a, ft_atoi(split[i]));
+		if (j == -1)
+			return (-1);
+		free(split[i]);
+	}
+	free(split);
+	return (1);
+}
+
+void	launch_algo(t_stack *stack_a, t_stack *stack_b, t_quartiles *quartiles)
+{
+	if (quartiles->len == 2 && stack_a->value > stack_a->next->value)
+		write(1, "sa\n", 3);
+	if (quartiles->len > 2 && !is_sorted(stack_a))
+		optimize_b(stack_a, stack_b, quartiles);
+	free_everything(&stack_a, &stack_b, &quartiles);
+	exit(1);
+}
 
 static int	split_len(char **split)
 {

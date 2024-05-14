@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   tweak_atoi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 14:13:04 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 16:47:00 by apetitco         ###   ########.fr       */
+/*   Created: 2024/05/14 17:07:06 by apetitco          #+#    #+#             */
+/*   Updated: 2024/05/14 17:12:30 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "algo.h"
 #include "push_swap.h"
 
-int	is_sorted(t_stack *stack)
+int	atoi_check(const char *ptr, int *error)
 {
-	int	i;
-	int	len;
+	char	*tmp;
 
-	len = ft_lstsize(stack);
-	if (len > 0)
+	if (ft_strlen(ptr) > 11)
 	{
-		i = 1;
-		while (i++ < len)
-		{
-			if (stack->value > stack->next->value)
-				return (0);
-			stack = stack->next;
-		}
+		*error = 1;
 		return (1);
 	}
-	return (0);
+	tmp = ft_itoa(ft_atoi(ptr));
+	if (!ft_strcmp(tmp, ptr))
+	{
+		free(tmp);
+		*error = 1;
+		return (1);
+	}
+	free(tmp);
+	return (ft_atoi(ptr));
 }

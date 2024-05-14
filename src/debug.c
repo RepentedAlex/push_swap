@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 13:44:52 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 16:47:30 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:12:24 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,13 @@ void	debug_stacks(t_stack *a, t_stack *b)
 	ft_lstiter(a, dump_node);
 	ft_printf("Stack b:\n");
 	ft_lstiter(b, dump_node);
+}
+
+void	ft_lstiter(t_stack *lst, void (*f)(int))
+{
+	while (lst)
+	{
+		f(lst->value);
+		lst = lst->next;
+	}
 }

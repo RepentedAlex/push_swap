@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:23:48 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 16:44:06 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:10:02 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include "push_swap.h"
 
-int		check_for_opti(t_stack **stack_a, t_stack **stack_b, int pos_a, int pos_b);
+int		check_for_opti(t_stack **stack_a, t_stack **stack_b, \
+int pos_a, int pos_b);
 int		count_moves(t_stack *stack_a, t_stack *stack_b, int best_move);
 int		get_index(t_stack *stack, int element);
 int		get_max(t_stack *stack);
