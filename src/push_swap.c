@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:08:51 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 11:10:11 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/15 13:12:23 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,17 @@ int	main(int argc, char *argv[])
 		exit(1);
 	error = 0;
 	get_mq(args_support(argc, argv), &mq, &error);
+	if (error || mq->len == 0 || !mq)
+	{
+		ft_putstr_fd("Error\n", 2);
+		if (mq)
+			free(mq);
+		return (1);
+	}
+	if (init_stack(&stack_a, args_support(argc, argv)) == 1)
+		launch_algo(stack_a, stack_b, mq);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
+	free(mq);
+	return (0);
 }
