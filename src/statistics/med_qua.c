@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:43:07 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 11:08:28 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/15 11:22:16 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	get_mq(char **split, t_mq **mq, int *error)
 		return ;
 	}
 	i = len;
-	while (--i != -1)
+	while (i-- != 0)
 	{
 		array[i] = atoi_check(split[i], error);
 		free(split[i]);
