@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:08:27 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 12:40:30 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/15 13:12:02 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	free_everything(t_stack **stack_a, t_stack **stack_b, t_mq **mq);
 void	free_stack(t_stack **stack);
 void	get_mq(char **split, t_mq **mq, int *error);
 int		get_stack_len(t_stack *stack);
+int		init_stack(t_stack **stack_a, char **split);
+void	launch_algo(t_stack *stack_a, t_stack *stack_b, t_mq *mq);
 t_stack	*new_node(int num);
 
 #endif
