@@ -6,7 +6,7 @@
 #    By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/30 16:24:07 by apetitco          #+#    #+#              #
-#    Updated: 2024/05/14 17:41:28 by apetitco         ###   ########.fr        #
+#    Updated: 2024/05/15 12:21:19 by apetitco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,18 +28,27 @@ WHITE		=	\033[0;97m
 ## VARIABLES ##
 ###############
 
-NAME	=	push_swap
-CC		=	gcc
-IFLAGS	=	-Iinclude -Ift_printf/Libft/include -Ift_printf/include
-LDFLAGS	=	-Lft_printf -lftprintf
-CFLAGS	=	-Wall -Wextra -Werror $(IFLAGS)
-SRC_DIR	=	src
+NAME		=	push_swap
+CC			=	gcc
+IFLAGS		=	-Iinclude -Ift_printf/Libft/include -Ift_printf/include
+LDFLAGS		=	-Lft_printf -lftprintf
+CFLAGS		=	-Wall -Wextra -Werror $(IFLAGS)
+SRC_DIR		=	src/
 BUILD_DIR	=	build
 
 #############
 ## SOURCES ##
 #############
 
+
+SRC_FILES	=	operations/rotations_op \
+				operations/translations_op \
+				stack/stack_utils \
+				statistics/check_args.c \
+				statistics/med_qua.c \
+				utilities/debug \
+				psuh_swap
+				
 SRC			=	$(wildcard $(SRC_DIR)/*.c)
 OBJ			=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRC))
 
