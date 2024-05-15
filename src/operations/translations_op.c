@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:29:08 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 13:30:02 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/15 13:56:17 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,20 @@ void	swap(t_stack *stack_a, t_stack *stack_b, t_operations operation)
 	return ;
 }
 
-//! NOT ADAPTATED FOR DOUBLY LINKED LISTS !//
 static void	push_internal(t_stack **receiver, t_stack **sender)
 {
-	t_stack	*new_first;
+	t_stack	*tmp;
 
-	new_first = (*sender)->next;
-	(*sender)->next = *receiver;
-	*receiver = *sender;
-	*sender = new_first;
+	if (add_to_list(receiver, (*sender)->value) == -1)
+	{
+		free_everything(receiver, sender, NULL);
+		exit(1);
+	}
+	tmp = *sender;
+	(*sender)->prev->next = (*sender)->next;
+	(*sender)->next->prev = (*sender)->prev;
+	(*sender) = (*sender)->next;
+	free(tmp);
 }
 
 void	push_stack(t_stack **stack_a, t_stack **stack_b, t_operations operation)
