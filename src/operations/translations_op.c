@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:29:08 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 12:26:24 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/15 13:30:02 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "libft.h"
 #include "push_swap.h"
 
-//! NOT ADAPTATED FOR DOUBLY LINKED LISTS !//
 static void	swap_internal(t_stack *stack)
 {
 	t_stack	*nav;
