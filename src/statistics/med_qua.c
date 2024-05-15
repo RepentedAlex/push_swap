@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:43:07 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 12:32:04 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:38:48 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	swap_el(int *a, int *b)
 	*b = tmp;
 }
 
-static int partition (int array[], int low, int high)
+static int	partition(int array[], int low, int high)
 {
 	int	pivot;
 	int	i;
@@ -45,7 +45,7 @@ static int partition (int array[], int low, int high)
 	return (i + 1);
 }
 
-static void quick_sort(int array[], int low, int high)
+static void	quick_sort(int array[], int low, int high)
 {
 	int	pivot;
 
@@ -55,6 +55,28 @@ static void quick_sort(int array[], int low, int high)
 		quick_sort(array, low, pivot - 1);
 		quick_sort(array, pivot + 1, high);
 	}	
+}
+
+static void	doublon_check(int array[], int len, t_mq **mq)
+{
+	int	i;
+	int	tmp;
+	int	l;
+
+	i = 0;
+	tmp = array[0];
+	l = 1;
+	while (++i < len)
+	{
+		if (array[i] == tmp)
+			l = 0;
+		tmp = array[i];
+	}
+	(*mq)->len = len;
+	if (!l)
+		(*mq)->len = l;
+	(*mq)->med = (len + 1) / 2;
+	fill_mq(mq, len, array);
 }
 
 void	get_mq(char **split, t_mq **mq, int *error)
@@ -80,7 +102,7 @@ void	get_mq(char **split, t_mq **mq, int *error)
 	}
 	free(split);
 	quick_sort(array, 0, len - 1);
-	//TODO: doublon_check
+	doublon_check(array, len, mq);
 	(*mq)->med = array[((*mq)->med)];
 	free(array);
 }
