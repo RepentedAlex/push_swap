@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   translation_op.c                                   :+:      :+:    :+:   */
+/*   translations_op.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 10:21:31 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 10:21:41 by apetitco         ###   ########.fr       */
+/*   Created: 2024/05/15 11:29:08 by apetitco          #+#    #+#             */
+/*   Updated: 2024/05/15 12:26:24 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 #include "push_swap.h"
 
+//! NOT ADAPTATED FOR DOUBLY LINKED LISTS !//
 static void	swap_internal(t_stack *stack)
 {
 	t_stack	*nav;
@@ -39,6 +40,7 @@ void	swap(t_stack *stack_a, t_stack *stack_b, t_operations operation)
 	return ;
 }
 
+//! NOT ADAPTATED FOR DOUBLY LINKED LISTS !//
 static void	push_internal(t_stack **receiver, t_stack **sender)
 {
 	t_stack	*new_first;
