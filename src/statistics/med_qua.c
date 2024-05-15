@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:43:07 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 11:22:16 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/15 11:25:11 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	get_mq(char **split, t_mq **mq, int *error)
 		free(split[i]);
 	}
 	free(split);
-	//quick_sort
-	//doublon_check
+	//TODO: quick_sort
+	//TODO: doublon_check
 	(*mq)->med = array[((*mq)->med)];
 	free(array);
 }
