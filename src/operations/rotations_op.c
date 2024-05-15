@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:21:35 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 11:07:54 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/15 13:59:29 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,10 @@
 //! NOT ADAPTATED FOR DOUBLY LINKED LIST !//
 static void	rotate_internal(t_stack **stack)
 {
-	t_stack	*last;
-	t_stack	*antepenultimate;
-
-	antepenultimate = *stack;
-	while (antepenultimate->next->next != NULL)
-		antepenultimate = antepenultimate->next;
-	last = antepenultimate->next;
-	last->next = *stack;
-	antepenultimate->next = NULL;
-	*stack = last;
+	if (!stack || !*stack)
+		return ;
+	*stack = (*stack)->next;
+	return ;
 }
 
 void	rotate(t_stack **stack_a, t_stack **stack_b, t_op op)
@@ -44,16 +38,9 @@ void	rotate(t_stack **stack_a, t_stack **stack_b, t_op op)
 //! NOT ADAPTATED FOR DOUBLY LINKED LIST !//
 static void	reverse_rotate_internal(t_stack **stack)
 {
-	t_stack	*first;
-	t_stack	*nav;
-
 	if (!stack || !*stack)
 		return ;
-	first = *stack;
-	nav = ft_lstlast(*stack);
-	nav->next = first;
-	*stack = first->next;
-	first->next = NULL;
+	*stack = (*stack)->prev;
 	return ;
 }
 
