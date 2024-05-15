@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:08:27 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 11:09:16 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:40:30 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_mq
 int		add_to_list(t_stack **stack, int num);
 char	**args_support(int argc, char *argv[]);
 int		atoi_check(const char *ptr, int *error);
+void	fill_mq(t_mq **mq, int len, int array[]);
 void	free_everything(t_stack **stack_a, t_stack **stack_b, t_mq **mq);
 void	free_stack(t_stack **stack);
 void	get_mq(char **split, t_mq **mq, int *error);
