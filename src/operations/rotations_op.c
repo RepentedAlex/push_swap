@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:21:35 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 13:59:29 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/15 14:02:33 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "libft.h"
 #include "push_swap.h"
 
-//! NOT ADAPTATED FOR DOUBLY LINKED LIST !//
 static void	rotate_internal(t_stack **stack)
 {
 	if (!stack || !*stack)
@@ -35,7 +34,6 @@ void	rotate(t_stack **stack_a, t_stack **stack_b, t_op op)
 	return ;
 }
 
-//! NOT ADAPTATED FOR DOUBLY LINKED LIST !//
 static void	reverse_rotate_internal(t_stack **stack)
 {
 	if (!stack || !*stack)
