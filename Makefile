@@ -6,7 +6,7 @@
 #    By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/30 16:24:07 by apetitco          #+#    #+#              #
-#    Updated: 2024/05/16 16:25:09 by apetitco         ###   ########.fr        #
+#    Updated: 2024/05/16 18:45:08 by apetitco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,9 +47,9 @@ SRC_FILES	=	algo/true_algo \
 				operations/translations_op \
 				stack/stack_initializer \
 				stack/stack_utils \
-				statistics/check_args \
 				statistics/med_qua \
 				statistics/mq_calc \
+				utilities/check_args \
 				utilities/debug \
 				push_swap
 				
