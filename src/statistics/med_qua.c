@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:43:07 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 12:38:48 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:18:23 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static int	partition(int array[], int low, int high)
 	pivot = array[high];
 	i = low - 1;
 	j = low;
-	while (array[j] <= pivot)
+	while (j < high)
 	{
-		if (arrau[j] <= pivot)
+		if (array[j] <= pivot)
 		{
 			i++;
 			swap_el(&array[i], &array[j]);
@@ -87,7 +87,7 @@ void	get_mq(char **split, t_mq **mq, int *error)
 
 	len = 0;
 	while (split[len] && split != NULL)
-		++len;
+		len++;
 	array = malloc(sizeof(int) * len);
 	if (!array || !split)
 	{
@@ -95,7 +95,7 @@ void	get_mq(char **split, t_mq **mq, int *error)
 		return ;
 	}
 	i = len;
-	while (i-- != 0)
+	while (i-- > 0)
 	{
 		array[i] = atoi_check(split[i], error);
 		free(split[i]);
