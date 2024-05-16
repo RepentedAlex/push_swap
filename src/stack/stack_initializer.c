@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 12:52:30 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 16:22:06 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:30:05 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@ int	init_stack(t_stack **stack_a, char **split, t_stack **stack_b)
 	int	i;
 	int	j;
 	
-	//! PRINTF ICI !//
-	ft_printf("\033[0;94mDébut de la fonction init_stack\n\033[0;39m");
-	//! PRINTF ICI !//
 	i = 0;
 	*stack_a = NULL;
 	*stack_b = NULL;
@@ -31,9 +28,6 @@ int	init_stack(t_stack **stack_a, char **split, t_stack **stack_b)
 		i++;
 	while (--i >= 0)
 	{
-		//! PRINTF ICI !//
-		ft_printf("\033[0;95mAjout des éléments via add_to_list %d\n\033[0;39m", i);
-		//! PRINTF ICI !//
 		j = add_to_list(stack_a, ft_atoi(split[i]));
 		if (j == -1)
 			return (-1);
