@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:58:18 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 18:07:21 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:35:56 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	**args_support(int argc, char *argv[])
 {
 	int		i;
 	char	**split;
-	
+
 	if (argc == 2)
 		return (ft_split(argv[1], ' '));
 	else
@@ -41,10 +41,7 @@ char	**args_support(int argc, char *argv[])
 		i = 0;
 		split = malloc(sizeof(char *) * argc);
 		while (++i < argc)
-		{
 			split[i - 1] = ft_strdup(argv[i]);
-			
-		}
 		split[argc - 1] = NULL;
 		return (split);
 	}

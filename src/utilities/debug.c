@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:16:40 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 18:21:47 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:35:31 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	dump_node(int val)
 static void	ft_lstiter(t_stack *lst, void (*f)(int))
 {
 	t_stack	*first;
-	
+
 	if (!lst)
 		return ;
 	first = lst->prev;

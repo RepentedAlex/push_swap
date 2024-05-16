@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:10:04 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 16:23:01 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:34:29 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	free_everything(t_stack **stack_a, t_stack **stack_b, t_mq **mq)
 void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
-	t_stack *last;
+	t_stack	*last;
 
 	if (!stack || !*stack)
 		return ;

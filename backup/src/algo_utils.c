@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:54:45 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:36:35 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/16 14:50:01 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,26 +72,6 @@ int	inner(t_stack *stack, int q1, int q3)
 			return (1);
 		tmp = tmp->next;
 		++i;
-	}
-	return (0);
-}
-
-int	is_sorted(t_stack *stack)
-{
-	int	i;
-	int	len;
-
-	len = ft_lstsize(stack);
-	if (len > 0)
-	{
-		i = 1;
-		while (i++ < len)
-		{
-			if (stack->value > stack->next->value)
-				return (0);
-			stack = stack->next;
-		}
-		return (1);
 	}
 	return (0);
 }
