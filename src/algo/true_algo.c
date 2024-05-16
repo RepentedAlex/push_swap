@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 13:02:06 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 13:11:25 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:15:41 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	is_sorted(t_stack *stack)
 	len = get_stack_len(stack);
 	if (len > 0)
 	{
-		i = 1
+		i = 1;
 		while (i++ < len)
 		{
 			if (stack->value > stack->next->value)
@@ -31,6 +31,7 @@ static int	is_sorted(t_stack *stack)
 		}
 		return (1);
 	}
+	return (0);
 }
 
 void	launch_algo(t_stack *stack_a, t_stack *stack_b, t_mq *mq)
@@ -43,5 +44,5 @@ void	launch_algo(t_stack *stack_a, t_stack *stack_b, t_mq *mq)
 		//TODO: optimize_b;
 	}
 	free_everything(&stack_a, &stack_b, &mq);
-	exit(1);
+//	exit(1);
 }
