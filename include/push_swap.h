@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:08:27 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 16:22:33 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:11:54 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_mq
 	int	q1;
 	int	q3;
 }		t_mq;
+
+#include "debug.h"
 
 int		add_to_list(t_stack **stack, int num);
 char	**args_support(int argc, char *argv[]);
