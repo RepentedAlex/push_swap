@@ -6,7 +6,7 @@
 #    By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/30 16:24:07 by apetitco          #+#    #+#              #
-#    Updated: 2024/05/16 14:06:39 by apetitco         ###   ########.fr        #
+#    Updated: 2024/05/16 16:25:09 by apetitco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ NAME		=	push_swap
 CC			=	gcc
 IFLAGS		=	-Iinclude -Ift_printf/Libft/include -Ift_printf/include
 LDFLAGS		=	-Lft_printf -lftprintf
-CFLAGS		=	-Wall -Wextra -Werror $(IFLAGS)
+FFLAG		=	-fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror $(IFLAGS) $(FFLAG)
 SRC_DIR		=	src/
 BUILD_DIR	=	build/
 
