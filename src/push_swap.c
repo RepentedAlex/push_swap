@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:08:51 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 14:49:39 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:23:43 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,14 @@ int	main(int argc, char *argv[])
 		if (mq)
 			free(mq);
 		return (1);
-	}	
+	}
 	//TODO: Fix `init_stack` function
-	if (init_stack(&stack_a, ft_split(argv[1], ' ')) == 1)
+	if (init_stack(&stack_a, ft_split(argv[1], ' '), &stack_b) == 1)
 	{
 		//! PRINTF ICI !//
 		ft_printf("\033[0;93mInitialisation de la stack effectuée ! o7\n\033[0;39m");
 		//! PRINTF ICI !//
 		launch_algo(stack_a, stack_b, mq);
 	}
-	free_stack(&stack_a);
-	free_stack(&stack_b);
-	free(mq);
 	return (0);
 }
