@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:29:08 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 13:56:17 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/16 14:03:08 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ static void	swap_internal(t_stack *stack)
 	nav->value = tmp;
 }
 
-void	swap(t_stack *stack_a, t_stack *stack_b, t_operations operation)
+void	swap(t_stack *stack_a, t_stack *stack_b, t_op op)
 {
-	if ((ft_lstsize(stack_a) < 2 && operation == sa) \
-	|| (ft_lstsize(stack_b) < 2 && operation == sb))
+	if ((get_stack_len(stack_a) < 2 && op == sa) \
+	|| (get_stack_len(stack_b) < 2 && op == sb))
 		return ;
-	ft_printf("s%c\n", (operation == sa) * 'a' + \
-	(operation == sb) * 'b' + (operation == ss) * 's');
-	if (operation == sa || operation == ss)
+	ft_printf("s%c\n", (op == sa) * 'a' + \
+	(op == sb) * 'b' + (op == ss) * 's');
+	if (op == sa || op == ss)
 		swap_internal(stack_a);
-	if (operation == sb || operation == ss)
+	if (op == sb || op == ss)
 		swap_internal(stack_b);
 	return ;
 }
@@ -43,24 +43,26 @@ static void	push_internal(t_stack **receiver, t_stack **sender)
 {
 	t_stack	*tmp;
 
-	if (add_to_list(receiver, (*sender)->value) == -1)
+	tmp = *sender;
+	if (!tmp)
+		return ;
+	if (add_to_list(receiver, tmp->value) == -1)
 	{
 		free_everything(receiver, sender, NULL);
 		exit(1);
 	}
-	tmp = *sender;
-	(*sender)->prev->next = (*sender)->next;
-	(*sender)->next->prev = (*sender)->prev;
-	(*sender) = (*sender)->next;
+	(*sender)->prev->next = tmp->next;
+	(*sender)->next->prev = tmp->prev;
+	(*sender) = tmp->next;
 	free(tmp);
 }
 
-void	push_stack(t_stack **stack_a, t_stack **stack_b, t_operations operation)
+void	push_stack(t_stack **stack_a, t_stack **stack_b, t_op op)
 {
-	ft_printf("p%c\n", (operation == pa) * 'a' + (operation == pb) * 'b');
-	if (operation == pa)
+	ft_printf("p%c\n", (op == pa) * 'a' + (op == pb) * 'b');
+	if (op == pa)
 		push_internal(stack_a, stack_b);
-	if (operation == pb)
+	if (op == pb)
 		push_internal(stack_b, stack_a);
 	return ;
 }

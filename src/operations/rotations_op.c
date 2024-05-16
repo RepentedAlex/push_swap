@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:21:35 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/15 14:02:33 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:50:44 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	rotate_internal(t_stack **stack)
 void	rotate(t_stack **stack_a, t_stack **stack_b, t_op op)
 {	
 	ft_printf("r%c\n", (op == ra) * 'a' + (op == rb) * 'b' + (op == rr) * 'r');
-	if ((ft_lstsize(*stack_a) < 2 && op == ra) || (ft_lstsize(*stack_b) < 2 && op == rb))
+	if ((get_stack_len(*stack_a) < 2 && op == ra) || (get_stack_len(*stack_b) < 2 && op == rb))
 		return ;
 	if (op == ra || op == rr)
 		rotate_internal(stack_a);
@@ -43,16 +43,16 @@ static void	reverse_rotate_internal(t_stack **stack)
 }
 
 void	reverse_rotate(t_stack **stack_a, t_stack **stack_b, \
-t_operations operation)
+t_op op)
 {
-	ft_printf("rr%c\n", (operation == rra) * 'a' + \
-	(operation == rrb) * 'b' + (operation == rrr) * 'r');
-	if ((ft_lstsize(*stack_a) < 2 && operation == rra) \
-	|| (ft_lstsize(*stack_b) < 2 && operation == rrb))
+	ft_printf("rr%c\n", (op == rra) * 'a' + \
+	(op == rrb) * 'b' + (op == rrr) * 'r');
+	if ((get_stack_len(*stack_a) < 2 && op == rra) \
+	|| (get_stack_len(*stack_b) < 2 && op == rrb))
 		return ;
-	if (operation == rra || operation == rrr)
+	if (op == rra || op == rrr)
 		reverse_rotate_internal(stack_a);
-	if (operation == rrb || operation == rrr)
+	if (op == rrb || op == rrr)
 		reverse_rotate_internal(stack_b);
 	return ;
 }
