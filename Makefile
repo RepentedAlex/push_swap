@@ -6,7 +6,7 @@
 #    By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/30 16:24:07 by apetitco          #+#    #+#              #
-#    Updated: 2024/05/15 12:21:19 by apetitco         ###   ########.fr        #
+#    Updated: 2024/05/16 14:06:39 by apetitco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,24 +34,28 @@ IFLAGS		=	-Iinclude -Ift_printf/Libft/include -Ift_printf/include
 LDFLAGS		=	-Lft_printf -lftprintf
 CFLAGS		=	-Wall -Wextra -Werror $(IFLAGS)
 SRC_DIR		=	src/
-BUILD_DIR	=	build
+BUILD_DIR	=	build/
 
 #############
 ## SOURCES ##
 #############
 
 
-SRC_FILES	=	operations/rotations_op \
+SRC_FILES	=	algo/true_algo \
+				operations/rotations_op \
 				operations/translations_op \
+				stack/stack_initializer \
 				stack/stack_utils \
-				statistics/check_args.c \
-				statistics/med_qua.c \
+				statistics/check_args \
+				statistics/med_qua \
+				statistics/mq_calc \
 				utilities/debug \
-				psuh_swap
+				push_swap
 				
-SRC			=	$(wildcard $(SRC_DIR)/*.c)
-OBJ			=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRC))
+SRC			=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
+OBJ			=	$(addprefix $(BUILD_DIR), $(addsuffix .o, $(SRC_FILES)))
 
+OBJF		= .cache_exists
 
 ###########
 ## BONUS ##
@@ -61,23 +65,28 @@ OBJ			=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRC))
 ## RECIPES ##
 #############
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(BUILD_DIR)
+all: $(NAME)
+
+$(NAME): $(OBJ) ft_printf/libftprintf.a
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LDFLAGS)
+	@echo "$(GREEN)$(NAME) has been created$(DEF_COLOR)"
+
+$(BUILD_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
 	@echo "$(YELLOW)Compiling: $<$(DEF_COLOR)"
 	@$(CC) -g3 $(CFLAGS) -c $< -o $@
 
-all: $(NAME)
+$(OBJF):
+	@mkdir -p $(BUILD_DIR)
+	@mkdir -p $(addprefix $(BUILD_DIR), $(dir $(SRC_FILES)))
+	@touch $(OBJF)
+	@echo "$(GREEN)Object directory created!$(DEF_COLOR)"
 
 ft_printf/libftprintf.a:
 	@make -C ft_printf
 
-$(NAME): ${OBJ} ft_printf/libftprintf.a
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LDFLAGS)
-	@echo "$(GREEN)$(NAME) has been created$(DEF_COLOR)"
-
 clean:
 	@make clean -C ft_printf
-	@rm -rf $(BUILD_DIR)
+	@rm -rf $(BUILD_DIR) $(OBJF)
 
 fclean: clean
 	@make fclean -C ft_printf
