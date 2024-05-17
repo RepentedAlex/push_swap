@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:57:41 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/17 12:00:28 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:04:04 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,8 @@
 
 void	optimize_a(t_stack *stack_a, t_stack *stack_b, t_mq *mq)
 {
-	
+	(void)stack_a;
+	(void)stack_b;
+	(void)mq;
+	return ;
 }

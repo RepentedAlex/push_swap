@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:54:45 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 14:50:01 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:54:18 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,38 @@ int	get_best_move(t_stack *stack_a, t_stack *stack_b)
 		nav = nav->next;
 	}
 	return (best_move);
+}
+
+int	get_max(t_stack *stack)
+{
+	int		max;
+	t_stack	*nav;
+
+	nav = stack;
+	max = nav->value;
+	while (nav->next != stack && nav != NULL)
+	{
+		if (nav->value > max)
+			max = nav->value;
+		nav = nav->next;
+	}
+	return (max);
+}
+
+int	get_min(t_stack *stack)
+{
+	int		min;
+	t_stack	*nav;
+
+	nav = stack;
+	min = nav->value;
+	while (nav->next != stack && nav != NULL)
+	{
+		if (nav->value < min)
+			min = nav->value;
+		nav = nav->next;
+	}
+	return (min);
 }
 
 int	inner(t_stack *stack, int q1, int q3)

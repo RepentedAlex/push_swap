@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:10:04 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 18:34:29 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:15:36 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int	get_stack_len(t_stack *stack)
 	int		size;
 	t_stack	*nav;
 
+	if (!stack)
+		return (0);	
 	nav = stack;
 	size = 0;
 	while (nav->next != stack && nav != NULL)

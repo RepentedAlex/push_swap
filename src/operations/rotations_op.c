@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:21:35 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 18:33:49 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:15:12 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	rotate_internal(t_stack **stack)
 }
 
 void	rotate(t_stack **stack_a, t_stack **stack_b, t_op op)
-{	
+{
 	ft_printf("r%c\n", (op == ra) * 'a' + (op == rb) * 'b' + (op == rr) * 'r');
 	if ((get_stack_len(*stack_a) < 2 && op == ra) \
 	|| (get_stack_len(*stack_b) < 2 && op == rb))

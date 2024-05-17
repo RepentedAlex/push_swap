@@ -6,11 +6,10 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:03:41 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/14 17:36:37 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:00:06 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algo.h"
 #include "ft_printf.h"
 #include "libft.h"
 #include "push_swap.h"
