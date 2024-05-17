@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:00:38 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/17 11:55:27 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:57:16 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,16 @@ static void	sort_three(t_stack **to_sort, t_stack **other)
 		if (tmp->value == min)
 		{
 			if (tmp->next->value == max)
-				rotate(to_sort, other, ra);
+				reverse_rotate(to_sort, other, rra);
 		}
 		else if (tmp->value == max)
-			reverse_rotate(to_sort, other, rra);
+			rotate(to_sort, other, ra);
 		else
 		{
 			if (tmp->next->value == min)
 				swap(*to_sort, *other, sa);
 			else if (tmp->next->value == max)
-				rotate(to_sort, other, ra);
+				reverse_rotate(to_sort, other, rra);
 		}	
 	}
 }
