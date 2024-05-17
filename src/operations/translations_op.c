@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:29:08 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 14:03:08 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 14:26:18 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,10 @@ void	swap(t_stack *stack_a, t_stack *stack_b, t_op op)
 static void	push_internal(t_stack **receiver, t_stack **sender)
 {
 	t_stack	*tmp;
+	int		len;
 
 	tmp = *sender;
+	len = get_stack_len(*sender);
 	if (!tmp)
 		return ;
 	if (add_to_list(receiver, tmp->value) == -1)
@@ -51,10 +53,19 @@ static void	push_internal(t_stack **receiver, t_stack **sender)
 		free_everything(receiver, sender, NULL);
 		exit(1);
 	}
-	(*sender)->prev->next = tmp->next;
-	(*sender)->next->prev = tmp->prev;
-	(*sender) = tmp->next;
-	free(tmp);
+	if (len == 1)
+	{
+		(*sender)->next = NULL;
+		(*sender)->prev = NULL;
+		*sender = NULL;
+	}
+	else
+	{
+		(*sender)->prev->next = tmp->next;
+		(*sender)->next->prev = tmp->prev;
+		(*sender) = tmp->next;
+		free(tmp);
+	}
 }
 
 void	push_stack(t_stack **stack_a, t_stack **stack_b, t_op op)

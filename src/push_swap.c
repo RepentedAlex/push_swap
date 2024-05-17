@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:08:51 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/17 12:14:02 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 14:13:35 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,14 @@ int	main(int argc, char *argv[])
 	}
 	if (init_stack(&stack_a, args_support(argc, argv), &stack_b) == 1)
 	{
+		ft_printf("=== BASE ===\n");
 		debug_stacks(stack_a, stack_b);
 		// launch_algo(stack_a, stack_b, mq);
-		rotate(&stack_a, &stack_b,  ra);
-		// reverse_rotate(&stack_a, &stack_b,  rrr);
+		push_stack(&stack_a, &stack_b, pb);
+		ft_printf("=== AFTER PB ===\n");
+		debug_stacks(stack_a, stack_b);
+		push_stack(&stack_a, &stack_b, pa);
+		ft_printf("=== AFTER PA ===\n");
 		debug_stacks(stack_a, stack_b);
 	}
 	return (0);
