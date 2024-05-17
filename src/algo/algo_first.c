@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:00:38 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/17 11:49:52 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:55:27 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,62 @@
 #include "ft_printf.h"
 #include "push_swap.h"
 
-int	inner(t_stack *stack, int q1, int q3)
+static int	is_sorted(t_stack *stack)
+{
+	int	i;
+	int	len;
+
+	len = get_stack_len(stack);
+	if (len > 0)
+	{
+		i = 1;
+		while (i++ < len)
+		{
+			if (stack->value > stack->next->value)
+				return (0);
+			stack = stack->next;
+		}
+		return (1);
+	}
+	return (0);
+}
+
+static void	sort_three(t_stack **to_sort, t_stack **other)
+{
+	t_stack	*tmp;
+	int		min;
+	int		max;
+
+		min = get_min(*to_sort);
+		max = get_max(*to_sort);
+	while (is_sorted(*to_sort) != 1)
+	{
+		tmp = *to_sort;
+		if (tmp->value == min)
+		{
+			if (tmp->next->value == max)
+				rotate(to_sort, other, ra);
+		}
+		else if (tmp->value == max)
+			reverse_rotate(to_sort, other, rra);
+		else
+		{
+			if (tmp->next->value == min)
+				swap(*to_sort, *other, sa);
+			else if (tmp->next->value == max)
+				rotate(to_sort, other, ra);
+		}	
+	}
+}
+
+static int	inner(t_stack *stack, int q1, int q3)
 {
 	int		i;
 	int		len;
 	t_stack	*tmp;
 
 	if (!stack)
-		return ;
+		return (0) ;
 	tmp = stack;
 	len = get_stack_len(stack);
 	i = 0;
@@ -55,6 +103,6 @@ void	optimize_b(t_stack *stack_a, t_stack *stack_b, t_mq *mq)
 			rotate(&stack_a, &stack_b, rb);
 	}
 	if (!is_sorted(stack_a))
-		sort_three(&stack_a);
+		sort_three(&stack_a, &stack_b);
 	optimize_a(stack_a, stack_b, mq);
 }
