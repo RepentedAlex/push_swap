@@ -45,7 +45,7 @@ $(NAME):	$(OBJ)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
 			@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-			$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+			$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJF):
 			@mkdir -p $(OBJ_DIR)
