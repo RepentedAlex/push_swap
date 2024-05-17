@@ -6,7 +6,7 @@
 #    By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/30 16:24:07 by apetitco          #+#    #+#              #
-#    Updated: 2024/05/17 11:57:56 by apetitco         ###   ########.fr        #
+#    Updated: 2024/05/17 12:06:10 by apetitco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ BUILD_DIR	=	build/
 
 SRC_FILES	=	algo/algo_first \
 				algo/algo_second \
+				algo/algo_utils \
 				algo/true_algo \
 				operations/rotations_op \
 				operations/translations_op \
