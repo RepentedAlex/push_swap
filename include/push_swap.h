@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:08:27 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 18:43:34 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:54:38 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,16 @@ void	debug_stacks(t_stack *a, t_stack *b);
 void	fill_mq(t_mq **mq, int len, int array[]);
 void	free_everything(t_stack **stack_a, t_stack **stack_b, t_mq **mq);
 void	free_stack(t_stack **stack);
+int		get_max(t_stack *stack);
+int		get_min(t_stack *stack);
 void	get_mq(char **split, t_mq **mq, int *error);
 int		get_stack_len(t_stack *stack);
 int		init_stack(t_stack **stack_a, char **split, t_stack **stack_b);
 void	launch_algo(t_stack *stack_a, t_stack *stack_b, t_mq *mq);
 t_stack	*new_node(int num);
+void	push_stack(t_stack **stack_a, t_stack **stack_b, t_op op);
+void	reverse_rotate(t_stack **stack_a, t_stack **stack_b, t_op op);
+void	rotate(t_stack **stack_a, t_stack **stack_b, t_op op);
 void	swap(t_stack *stack_a, t_stack *stack_b, t_op op);
 
 #endif
