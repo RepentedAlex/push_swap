@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 12:39:16 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 18:35:15 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 15:33:32 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	fill_mq(t_mq **mq, int len, int array[])
 	(*mq)->q3 = ((*mq)->med + (*mq)->q1);
 	if (len > 5)
 	{
-		(*mq)->q1 = array[(*mq)->q1];
-		(*mq)->q3 = array[(*mq)->q3];
+		(*mq)->q1 = array[(*mq)->q1 - 1];
+		(*mq)->q3 = array[(*mq)->q3 - 1];
 	}
 	else
 	{
