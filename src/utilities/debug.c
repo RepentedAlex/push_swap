@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:16:40 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/17 14:25:03 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:39:50 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_lstiter(t_stack *lst, void (*f)(int))
 {
 	t_stack	*first;
 
-	if (lst == NULL)
+	if (!lst)
 		return ;
 	first = lst->prev;
 	f(lst->value);

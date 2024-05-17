@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:29:08 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/17 17:50:33 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 18:04:32 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	swap(t_stack *stack_a, t_stack *stack_b, t_op op)
 		swap_internal(stack_b);
 	return ;
 }
-
+//! === FAIT CRASH === !//
 static void	push_internal(t_stack **receiver, t_stack **sender)
 {
 	t_stack	*tmp;

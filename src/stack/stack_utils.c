@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:10:04 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/17 14:15:51 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 18:02:29 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,12 @@ int	add_to_list(t_stack **stack, int num)
 
 void	free_everything(t_stack **stack_a, t_stack **stack_b, t_mq **mq)
 {
-	free_stack(stack_a);
-	free_stack(stack_b);
-	free(*mq);
+	if (stack_a != NULL)
+		free_stack(stack_a);
+	if (*mq != NULL)
+		free(*mq);
+	if (*stack_b != NULL)
+		free_stack(stack_b);
 }
 
 void	free_stack(t_stack **stack)

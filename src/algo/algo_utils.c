@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:05:29 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/17 12:05:51 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/17 15:02:27 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,16 @@
 
 int	get_max(t_stack *stack)
 {
+	int		i;
+	int		len;
 	int		max;
 	t_stack	*nav;
 
+	len = get_stack_len(stack);
 	nav = stack;
 	max = nav->value;
-	while (nav->next != stack && nav != NULL)
+	i = 0;
+	while (nav != NULL && i++ < len)
 	{
 		if (nav->value > max)
 			max = nav->value;
@@ -32,12 +36,16 @@ int	get_max(t_stack *stack)
 
 int	get_min(t_stack *stack)
 {
+	int		i;
+	int		len;
 	int		min;
 	t_stack	*nav;
 
+	len = get_stack_len(stack);
 	nav = stack;
 	min = nav->value;
-	while (nav->next != stack && nav != NULL)
+	i = 0;
+	while (nav != NULL && i++ < len)
 	{
 		if (nav->value < min)
 			min = nav->value;
