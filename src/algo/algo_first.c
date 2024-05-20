@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:00:38 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/20 14:53:11 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:43:03 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 #include "ft_printf.h"
 #include "push_swap.h"
 
-static int	is_sorted(t_stack *stack)
+static int	is_sorted(t_stack **stack)
 {
-	int	i;
-	int	len;
+	int		i;
+	int		len;
+	t_stack	*nav;
 
 	len = get_stack_len(stack);
+	nav = *stack;
 	if (len > 0)
 	{
 		i = 1;
 		while (i++ < len)
 		{
-			if (stack->value > stack->next->value)
+			if (nav->value > nav->next->value)
 				return (0);
-			stack = stack->next;
+			nav = nav->next;
 		}
 		return (1);
 	}
@@ -40,9 +42,9 @@ static void	sort_three(t_stack **to_sort, t_stack **other)
 	int		min;
 	int		max;
 
-		min = get_min(*to_sort);
-		max = get_max(*to_sort);
-	while (is_sorted(*to_sort) != 1)
+		min = get_min(to_sort);
+		max = get_max(to_sort);
+	while (is_sorted(to_sort) != 1)
 	{
 		tmp = *to_sort;
 		if (tmp->value == min)
@@ -62,15 +64,15 @@ static void	sort_three(t_stack **to_sort, t_stack **other)
 	}
 }
 
-static int	inner(t_stack *stack, int q1, int q3)
+static int	inner(t_stack **stack, int q1, int q3)
 {
 	int		i;
 	int		len;
 	t_stack	*tmp;
 
-	if (!stack)
+	if (*stack == NULL)
 		return (0) ;
-	tmp = stack;
+	tmp = *stack;
 	len = get_stack_len(stack);
 	i = 0;
 	while (i++ < len)
@@ -84,7 +86,7 @@ static int	inner(t_stack *stack, int q1, int q3)
 
 void	optimize_b(t_stack **stack_a, t_stack **stack_b, t_mq *mq)
 {
-	while (inner(*stack_a, mq->q1, mq->q3))
+	while (inner(stack_a, mq->q1, mq->q3))
 	{
 		if (mq->q1 <= (*stack_a)->value && (*stack_a)->value <= mq->med)
 		{
@@ -96,13 +98,13 @@ void	optimize_b(t_stack **stack_a, t_stack **stack_b, t_mq *mq)
 		else
 			rotate(stack_a, stack_b, ra);
 	}
-	while (get_stack_len(*stack_a) > 3)
+	while (get_stack_len(stack_a) > 3)
 	{
 		push_stack(stack_a, stack_b, pb);
 		if ((*stack_b)->value < mq->med)
 			rotate(stack_a, stack_b, rb);
 	}
-	if (!is_sorted(*stack_a))
+	if (!is_sorted(stack_a))
 		sort_three(stack_a, stack_b);
 	optimize_a(stack_a, stack_b, mq);
 }
