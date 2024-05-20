@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:08:27 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/20 15:15:19 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/20 15:17:13 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	debug_stacks(t_stack *a, t_stack *b);
 void	fill_mq(t_mq **mq, int len, int array[]);
 void	free_everything(t_stack **stack_a, t_stack **stack_b, t_mq **mq);
 void	free_stack(t_stack **stack);
+int		get_best_move(t_stack **stack_a, t_stack **stack_b);
 int		get_max(t_stack *stack);
 int		get_min(t_stack *stack);
 void	get_mq(char **split, t_mq **mq, int *error);
