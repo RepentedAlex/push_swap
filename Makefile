@@ -6,7 +6,7 @@
 #    By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/30 16:24:07 by apetitco          #+#    #+#              #
-#    Updated: 2024/05/17 12:06:10 by apetitco         ###   ########.fr        #
+#    Updated: 2024/05/20 15:07:53 by apetitco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,11 +29,13 @@ WHITE		=	\033[0;97m
 ###############
 
 NAME		=	push_swap
-CC			=	gcc
+CC			?=	cc
 IFLAGS		=	-Iinclude -Ift_printf/Libft/include -Ift_printf/include
 LDFLAGS		=	-Lft_printf -lftprintf
 FFLAG		=	-fsanitize=address
-CFLAGS		=	-Wall -Wextra -Werror $(IFLAGS) $(FFLAG)
+CFLAGS		=	-Wall -Wextra -Werror $(IFLAGS) 
+CFLAGS 		+=	$(FFLAG) 
+CFLAGS 		+= 	-Weverything -Wno-padded -Wno-newline-eof -Wno-missing-prototypes -Wno-shorten-64-to-32 -Wno-sign-conversion
 SRC_DIR		=	src/
 BUILD_DIR	=	build/
 
@@ -86,14 +88,14 @@ $(OBJF):
 	@echo "$(GREEN)Object directory created!$(DEF_COLOR)"
 
 ft_printf/libftprintf.a:
-	@make -C ft_printf
+	@make -C ft_printf --no-print-directory
 
 clean:
-	@make clean -C ft_printf
+	@make clean -C ft_printf --no-print-directory
 	@rm -rf $(BUILD_DIR) $(OBJF)
 
 fclean: clean
-	@make fclean -C ft_printf
+	@make fclean -C ft_printf --no-print-directory
 	@rm -f $(NAME)
 
 re: fclean all
