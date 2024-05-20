@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:00:38 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/17 17:57:16 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:53:11 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	sort_three(t_stack **to_sort, t_stack **other)
 		else
 		{
 			if (tmp->next->value == min)
-				swap(*to_sort, *other, sa);
+				swap(to_sort, other, sa);
 			else if (tmp->next->value == max)
 				reverse_rotate(to_sort, other, rra);
 		}	
@@ -82,27 +82,27 @@ static int	inner(t_stack *stack, int q1, int q3)
 	return (0);
 }
 
-void	optimize_b(t_stack *stack_a, t_stack *stack_b, t_mq *mq)
+void	optimize_b(t_stack **stack_a, t_stack **stack_b, t_mq *mq)
 {
-	while (inner(stack_a, mq->q1, mq->q3))
+	while (inner(*stack_a, mq->q1, mq->q3))
 	{
-		if (mq->q1 <= stack_a->value && stack_a->value <= mq->med)
+		if (mq->q1 <= (*stack_a)->value && (*stack_a)->value <= mq->med)
 		{
-			push_stack(&stack_a, &stack_b, pb);
-			rotate(&stack_a, &stack_b, rb);
+			push_stack(stack_a, stack_b, pb);
+			rotate(stack_a, stack_b, rb);
 		}
-		else if (mq->med <= stack_a->value && stack_a->value <= mq->q3)
-			push_stack(&stack_a, &stack_b, pb);
+		else if (mq->med <= (*stack_a)->value && (*stack_a)->value <= mq->q3)
+			push_stack(stack_a, stack_b, pb);
 		else
-			rotate(&stack_a, &stack_b, ra);
+			rotate(stack_a, stack_b, ra);
 	}
-	while (get_stack_len(stack_a) > 3)
+	while (get_stack_len(*stack_a) > 3)
 	{
-		push_stack(&stack_a, &stack_b, pb);
-		if (stack_b->value < mq->med)
-			rotate(&stack_a, &stack_b, rb);
+		push_stack(stack_a, stack_b, pb);
+		if ((*stack_b)->value < mq->med)
+			rotate(stack_a, stack_b, rb);
 	}
-	if (!is_sorted(stack_a))
-		sort_three(&stack_a, &stack_b);
+	if (!is_sorted(*stack_a))
+		sort_three(stack_a, stack_b);
 	optimize_a(stack_a, stack_b, mq);
 }

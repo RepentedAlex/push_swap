@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 13:02:06 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/17 17:28:41 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:55:50 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ static int	is_sorted(t_stack *stack)
 	return (0);
 }
 
-void	launch_algo(t_stack *stack_a, t_stack *stack_b, t_mq *mq)
+void	launch_algo(t_stack **stack_a, t_stack **stack_b, t_mq *mq)
 {
-	if (mq->len == 2 && stack_a->value > stack_a->next->value)
+	if (mq->len == 2 && (*stack_a)->value > (*stack_a)->next->value)
 		swap(stack_a, stack_b, sa);
-	if (mq->len > 2 && !is_sorted(stack_a))
+	if (mq->len > 2 && !is_sorted(*stack_a))
 	{
 		optimize_b(stack_a, stack_b, mq);
 	}

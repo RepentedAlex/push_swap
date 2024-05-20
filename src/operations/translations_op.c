@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:29:08 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/17 18:04:32 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:57:24 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 #include "libft.h"
 #include "push_swap.h"
 
-static void	swap_internal(t_stack *stack)
+static void	swap_internal(t_stack **stack)
 {
 	t_stack	*nav;
 	int		tmp;
 
-	tmp = stack->value;
-	nav = stack->next;
-	stack->value = nav->value;
+	tmp = (*stack)->value;
+	nav = (*stack)->next;
+	(*stack)->value = nav->value;
 	nav->value = tmp;
 }
 
-void	swap(t_stack *stack_a, t_stack *stack_b, t_op op)
+void	swap(t_stack **stack_a, t_stack **stack_b, t_op op)
 {
-	if ((get_stack_len(stack_a) < 2 && op == sa) \
-	|| (get_stack_len(stack_b) < 2 && op == sb))
+	if ((get_stack_len(*stack_a) < 2 && op == sa) \
+	|| (get_stack_len(*stack_b) < 2 && op == sb))
 		return ;
 	ft_printf("s%c\n", (op == sa) * 'a' + \
 	(op == sb) * 'b' + (op == ss) * 's');
@@ -53,10 +53,13 @@ static void	push_internal(t_stack **receiver, t_stack **sender)
 		free_everything(receiver, sender, NULL);
 		exit(1);
 	}
+	if (*receiver == NULL)
+		*receiver = new_node((*sender)->value);
 	if (len == 1)
 	{
 		(*sender)->next = NULL;
 		(*sender)->prev = NULL;
+		free(*sender);
 		*sender = NULL;
 	}
 	else
