@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:10:04 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/20 14:42:16 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:39:38 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	free_stack(t_stack **stack)
 	t_stack	*tmp;
 	t_stack	*last;
 
-	if (!stack || !*stack)
+	if (*stack == NULL)
 		return ;
 	tmp = NULL;
 	last = (*stack)->prev;
@@ -66,16 +66,16 @@ void	free_stack(t_stack **stack)
 	free(*stack);
 }
 
-int	get_stack_len(t_stack *stack)
+int	get_stack_len(t_stack **stack)
 {
 	int		size;
 	t_stack	*nav;
 
 	if (!stack)
 		return (0);	
-	nav = stack;
+	nav = *stack;
 	size = 1;
-	while (nav->next != stack && nav != NULL)
+	while (nav->next != *stack && nav != NULL)
 	{
 		nav = nav->next;
 		size++;
