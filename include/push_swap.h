@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:08:27 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/20 14:54:45 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/20 15:15:19 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int		get_min(t_stack *stack);
 void	get_mq(char **split, t_mq **mq, int *error);
 int		get_stack_len(t_stack *stack);
 int		init_stack(t_stack **stack_a, char **split, t_stack **stack_b);
+void	insertion_sort(t_stack **stack_a, t_stack **stack_b, t_mq **mq);
 void	launch_algo(t_stack **stack_a, t_stack **stack_b, t_mq *mq);
 t_stack	*new_node(int num);
 void	optimize_a(t_stack **stack_a, t_stack **stack_b, t_mq *mq);
