@@ -6,13 +6,14 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:10:04 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/21 12:41:48 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:47:35 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 #include "push_swap.h"
+#include "stack_funcs.h"
 
 int	add_to_list(t_stack **stack, int num)
 {

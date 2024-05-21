@@ -6,13 +6,14 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 13:02:06 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/20 16:43:34 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:46:57 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 #include "push_swap.h"
+#include "stack_funcs.h"
 
 static int	is_sorted(t_stack **stack)
 {

@@ -6,7 +6,7 @@
 #    By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/30 16:24:07 by apetitco          #+#    #+#              #
-#    Updated: 2024/05/20 15:07:53 by apetitco         ###   ########.fr        #
+#    Updated: 2024/05/21 14:38:56 by apetitco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ FFLAG		=	-fsanitize=address
 CFLAGS		=	-Wall -Wextra -Werror $(IFLAGS) 
 CFLAGS 		+=	$(FFLAG) 
 CFLAGS 		+= 	-Weverything -Wno-padded -Wno-newline-eof -Wno-missing-prototypes -Wno-shorten-64-to-32 -Wno-sign-conversion
+CFLAGS		+=	-MMD -MP
 SRC_DIR		=	src/
 BUILD_DIR	=	build/
 
@@ -99,5 +100,7 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
+
+-include $(OBJ:.o=.d)
 
 .PHONY: all clean fclean re

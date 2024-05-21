@@ -6,13 +6,14 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:16:40 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/17 17:39:50 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:30:53 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 #include "push_swap.h"
+#include <stdio.h>
 
 static void	dump_node(int val)
 {
@@ -25,6 +26,8 @@ static void	ft_lstiter(t_stack *lst, void (*f)(int))
 
 	if (!lst)
 		return ;
+	printf("lst %p\t", (void *)lst); fflush(stdout);
+	printf(" prev %p\n", (void *)lst->prev); fflush(stdout);
 	first = lst->prev;
 	f(lst->value);
 	while (lst != first)
@@ -37,7 +40,13 @@ static void	ft_lstiter(t_stack *lst, void (*f)(int))
 void	debug_stacks(t_stack *a, t_stack *b)
 {
 	ft_printf("Stack a:\n");
-	ft_lstiter(a, dump_node);
+	if (!a)
+		ft_printf("tout vide\n");
+	else
+		ft_lstiter(a, dump_node);
 	ft_printf("Stack b:\n");
-	ft_lstiter(b, dump_node);
+	if (!b)
+		ft_printf("tout vide\n");
+	else
+		ft_lstiter(b, dump_node);
 }

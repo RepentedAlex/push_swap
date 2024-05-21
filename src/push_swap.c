@@ -6,13 +6,14 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:08:51 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/20 14:48:21 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:47:44 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 #include "push_swap.h"
+#include "stack_funcs.h"
 
 int	main(int argc, char *argv[])
 {
@@ -36,7 +37,11 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	if (init_stack(&stack_a, args_support(argc, argv), &stack_b) == 1)
+	{
+		debug_stacks(stack_a, stack_b);
 		launch_algo(&stack_a, &stack_b, mq);
+		debug_stacks(stack_a, stack_b);
+	}
 	free_everything(&stack_a, &stack_b, &mq);
 	return (0);
 }

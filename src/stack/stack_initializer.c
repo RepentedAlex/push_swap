@@ -6,13 +6,14 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 12:52:30 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 18:34:19 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:47:27 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 #include "push_swap.h"
+#include "stack_funcs.h"
 
 int	init_stack(t_stack **stack_a, char **split, t_stack **stack_b)
 {
