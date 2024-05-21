@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:57:41 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/21 14:46:35 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:34:45 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,34 @@ void	rr_rra(t_stack **stack_a, t_stack **stack_b, int pos_a, int i)
 	}
 	else
 	{
-		while (i < get_stack_len(stack_a - pos_a))
+		while (i < get_stack_len(stack_a) - pos_a)
 		{
 			reverse_rotate(stack_a, stack_b, rra);
 			++i;
 		}
 	}
 	return ;
+}
+
+void	replace_stack(t_stack **stack_a, t_stack **stack_b)
+{
+	int		min;
+	int		index;
+	t_stack	*nav;
+
+	nav = *stack_a;
+	min = get_min(stack_a);
+	while ((*stack_a)->value != min)
+	{
+		index = get_index(stack_a, min);
+		if (index <= get_stack_len(stack_a) / 2)
+			while ((*stack_a)->value != min)
+				rotate(stack_a, stack_b, ra);
+		else
+			while ((*stack_a)->value != min)
+				reverse_rotate(stack_a, stack_b, rra);			
+	}
+	// *stack_a = nav;
 }
 
 void	insertion_sort(t_stack **stack_a, t_stack **stack_b, int best_move)
@@ -92,7 +113,6 @@ void	optimize_a(t_stack **stack_a, t_stack **stack_b, t_mq *mq)
 		insertion_sort(stack_a, stack_b, get_best_move(stack_a, stack_b));
 		mq->len--;
 	}
-	(void)stack_b;
-	(void)mq;
+	replace_stack(stack_a, stack_b);
 	return ;
 }

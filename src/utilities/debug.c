@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:16:40 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/21 14:30:53 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:38:29 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 static void	dump_node(int val)
 {
-	ft_printf("val %d\n", val);
+	fprintf(stderr, "val %d\n", val);
 }
 
 static void	ft_lstiter(t_stack *lst, void (*f)(int))
@@ -26,8 +26,6 @@ static void	ft_lstiter(t_stack *lst, void (*f)(int))
 
 	if (!lst)
 		return ;
-	printf("lst %p\t", (void *)lst); fflush(stdout);
-	printf(" prev %p\n", (void *)lst->prev); fflush(stdout);
 	first = lst->prev;
 	f(lst->value);
 	while (lst != first)
@@ -39,14 +37,14 @@ static void	ft_lstiter(t_stack *lst, void (*f)(int))
 
 void	debug_stacks(t_stack *a, t_stack *b)
 {
-	ft_printf("Stack a:\n");
+	fprintf(stderr, "Stack a:\n");
 	if (!a)
-		ft_printf("tout vide\n");
+		fprintf(stderr, "tout vide\n");
 	else
 		ft_lstiter(a, dump_node);
-	ft_printf("Stack b:\n");
+	fprintf(stderr, "Stack b:\n");
 	if (!b)
-		ft_printf("tout vide\n");
+		fprintf(stderr, "tout vide\n");
 	else
 		ft_lstiter(b, dump_node);
 }

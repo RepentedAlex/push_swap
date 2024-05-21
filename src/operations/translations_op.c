@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:29:08 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/21 14:47:18 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:45:11 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	swap(t_stack **stack_a, t_stack **stack_b, t_op op)
 		swap_internal(stack_a);
 	if (op == sb || op == ss)
 		swap_internal(stack_b);
-	debug_stacks(*stack_a, *stack_b);
 	return ;
 }
 
@@ -55,8 +54,6 @@ static void	push_internal(t_stack **receiver, t_stack **sender)
 		free_everything(receiver, sender, NULL);
 		exit(1);
 	}
-	// if (*receiver == NULL)
-	// 	*receiver = new_node((*sender)->value);
 	if (len == 1)
 	{
 		free(*sender);
@@ -78,6 +75,5 @@ void	push_stack(t_stack **stack_a, t_stack **stack_b, t_op op)
 		push_internal(stack_a, stack_b);
 	if (op == pb)
 		push_internal(stack_b, stack_a);
-	debug_stacks(*stack_a, *stack_b);
 	return ;
 }

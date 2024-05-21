@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:10:04 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/21 14:47:35 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:28:33 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 #include "push_swap.h"
 #include "stack_funcs.h"
+#include <stdio.h>
 
 int	add_to_list(t_stack **stack, int num)
 {
@@ -73,7 +74,7 @@ int	get_stack_len(t_stack **stack)
 	t_stack	*nav;
 
 	if (!stack)
-		return (0);	
+		return (0);
 	nav = *stack;
 	size = 1;
 	while (nav != NULL && nav->next != *stack)
