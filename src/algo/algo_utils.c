@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:05:29 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/21 14:46:47 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/21 18:57:17 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	get_pos_to_place(t_stack **stack, int elem)
 
 	min = get_min(stack);
 	if (elem > get_max(stack) || elem < min)
-		get_index(stack, min);
+		return (get_index(stack, min));
 	len = get_stack_len(stack);
 	i = -1;
 	nav = *stack;

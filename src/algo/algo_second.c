@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:57:41 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/21 16:34:45 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/21 18:47:03 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void	replace_stack(t_stack **stack_a, t_stack **stack_b)
 			while ((*stack_a)->value != min)
 				reverse_rotate(stack_a, stack_b, rra);			
 	}
-	// *stack_a = nav;
 }
 
 void	insertion_sort(t_stack **stack_a, t_stack **stack_b, int best_move)
@@ -107,7 +106,7 @@ void	insertion_sort(t_stack **stack_a, t_stack **stack_b, int best_move)
 
 void	optimize_a(t_stack **stack_a, t_stack **stack_b, t_mq *mq)
 {
-	mq->len -= 3;
+	mq->len -= get_stack_len(stack_a);
 	while (mq->len)
 	{
 		insertion_sort(stack_a, stack_b, get_best_move(stack_a, stack_b));
