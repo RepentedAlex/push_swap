@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 13:02:06 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/21 14:46:57 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/23 14:01:41 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 static int	is_sorted(t_stack **stack)
 {
-	int	i;
-	int	len;
+	int		i;
+	int		len;
 	t_stack	*nav;
 
 	nav = *stack;

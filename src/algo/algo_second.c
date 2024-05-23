@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:57:41 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/21 18:47:03 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/23 14:02:37 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	replace_stack(t_stack **stack_a, t_stack **stack_b)
 				rotate(stack_a, stack_b, ra);
 		else
 			while ((*stack_a)->value != min)
-				reverse_rotate(stack_a, stack_b, rra);			
+				reverse_rotate(stack_a, stack_b, rra);
 	}
 }
 

@@ -6,14 +6,14 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 14:44:26 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/21 14:49:35 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/23 14:04:03 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_FUNCS_H
 # define STACK_FUNCS_H
 
-#include "push_swap_types.h"
+# include "push_swap_types.h"
 
 int		add_to_list(t_stack **stack, int num);
 void	debug_stacks(t_stack *a, t_stack *b);

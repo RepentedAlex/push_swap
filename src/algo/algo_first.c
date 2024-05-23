@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:00:38 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/21 14:46:20 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/05/23 14:02:16 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static int	inner(t_stack **stack, int q1, int q3)
 	t_stack	*tmp;
 
 	if (*stack == NULL)
-		return (0) ;
+		return (0);
 	tmp = *stack;
 	len = get_stack_len(stack);
 	i = 0;
@@ -80,7 +80,7 @@ static int	inner(t_stack **stack, int q1, int q3)
 	{
 		if (q1 <= tmp->value && tmp->value <= q3)
 			return (1);
-		tmp  = tmp->next;
+		tmp = tmp->next;
 	}
 	return (0);
 }
