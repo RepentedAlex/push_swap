@@ -1,6 +1,6 @@
 a.out
 build/
-.vscode/*
+.vscode/
 .DS_Store
 checker_linux
 push_swap_visualizer/*
