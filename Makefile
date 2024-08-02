@@ -6,7 +6,7 @@
 #    By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/30 16:24:07 by apetitco          #+#    #+#              #
-#    Updated: 2024/05/23 14:03:29 by apetitco         ###   ########.fr        #
+#    Updated: 2024/08/01 10:40:24 by apetitco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,8 @@ IFLAGS		=	-Iinclude -Ift_printf/Libft/include -Ift_printf/include
 LDFLAGS		=	-Lft_printf -lftprintf
 FFLAG		=	-fsanitize=address
 CFLAGS		=	-Wall -Wextra -Werror $(IFLAGS) 
-CFLAGS 		+=	$(FFLAG) 
-CFLAGS 		+= 	-Weverything -Wno-padded -Wno-newline-eof -Wno-missing-prototypes -Wno-shorten-64-to-32 -Wno-sign-conversion
+#CFLAGS 		+=	$(FFLAG) 
+#CFLAGS 		+= 	-Weverything -Wno-padded -Wno-newline-eof -Wno-missing-prototypes -Wno-shorten-64-to-32 -Wno-sign-conversion
 CFLAGS		+=	-MMD -MP
 SRC_DIR		=	src/
 BUILD_DIR	=	build/

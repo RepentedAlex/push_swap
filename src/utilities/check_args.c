@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:58:18 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/16 18:35:56 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/08/01 10:39:11 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 
 int	atoi_check(const char *ptr, int *error)
 {
-	char	*tmp;
+	char		*tmp;
+	long long	val;
 
-	tmp = ft_itoa(ft_atoi(ptr));
+	val = ft_atoi(ptr);
+	if (!(INT32_MIN <= val && val <= INT32_MAX))
+		return (*error = 1, 1);
+	tmp = ft_itoa(val);
 	if (ft_strcmp(tmp, ptr))
-	{
-		free(tmp);
-		*error = 1;
-		return (1);
-	}
+		return (free(tmp), *error = 1, 1);
 	free(tmp);
 	return (ft_atoi(ptr));
 }
