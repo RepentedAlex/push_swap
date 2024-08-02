@@ -87,19 +87,12 @@ void	get_mq(char **split, t_mq **mq, int *error)
 
 	len = 0;
 	if (!split)
-	{
-		*error = 1;
-		return ;
-	}
+		return (*error = 1, (void) NULL);
 	while (split[len] && split != NULL)
 		len++;
 	array = malloc(sizeof(int) * len);
 	if (!array)
-	{
-		*mq = NULL;
-		*error = 1;
-		return ;
-	}
+		return (*mq = NULL, *error = 1, (void) NULL);
 	i = len;
 	while (i-- > 0)
 	{
