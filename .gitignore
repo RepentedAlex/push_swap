@@ -3,6 +3,7 @@ build/
 .vscode/
 .cache_exists
 push_swap
+.idea/
 .DS_Store
 checker_linux
 push_swap_visualizer/*
