@@ -30,7 +30,6 @@ int	main(int argc, char *argv[])
 		exit(1);
 	error = 0;
 	get_mq(args_support(argc, argv), &mq, &error);
-
 	if (error || mq->len == 0 || !mq)
 	{
 		ft_putstr_fd("Error\n", 2);

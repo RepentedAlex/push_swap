@@ -31,9 +31,9 @@ int	atoi_check(const char *ptr, int *error)
 	return (ft_atoi(ptr));
 }
 
-void free_tab(char **tab)
+void	free_tab(char **tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab[i])
@@ -57,7 +57,8 @@ char	**args_support(int argc, char *argv[])
 		split = ft_calloc((size_t)argc, sizeof(char *));
 		if (!split)
 			return (NULL);
-		while (++i < argc) {
+		while (++i < argc)
+		{
 			split[i - 1] = ft_strdup(argv[i]);
 			if (!split[i - 1])
 				return (free_tab(split), NULL);
