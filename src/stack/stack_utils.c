@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:10:04 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/21 16:28:33 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:32:05 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	free_everything(t_stack **stack_a, t_stack **stack_b, t_mq **mq)
 {
 	if (*stack_a != NULL)
 		free_stack(stack_a);
-	if (*mq != NULL)
+	if (mq != NULL)
 		free(*mq);
 	if (*stack_b != NULL)
 		free_stack(stack_b);
@@ -59,9 +59,13 @@ void	free_stack(t_stack **stack)
 		return ;
 	tmp = NULL;
 	last = (*stack)->prev;
+	if (!last)
+		return ;
 	while (*stack && *stack != last)
 	{
 		tmp = (*stack)->next;
+		if (!tmp)
+			break ;
 		free(*stack);
 		*stack = tmp;
 	}

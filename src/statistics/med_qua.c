@@ -6,7 +6,7 @@
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:43:07 by apetitco          #+#    #+#             */
-/*   Updated: 2024/05/17 15:36:12 by apetitco         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:12:06 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,18 @@ void	get_mq(char **split, t_mq **mq, int *error)
 	int	len;
 
 	len = 0;
+	if (!split)
+	{
+		*error = 1;
+		return ;
+	}
 	while (split[len] && split != NULL)
 		len++;
 	array = malloc(sizeof(int) * len);
-	if (!array || !split)
+	if (!array)
 	{
 		*mq = NULL;
+		*error = 1;
 		return ;
 	}
 	i = len;

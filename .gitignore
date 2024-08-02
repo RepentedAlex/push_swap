@@ -4,6 +4,8 @@ build/
 .vscode/
 .cache_exists
 push_swap
+push_swap_test_linux.sh
+traces.txt
 .idea/
 .DS_Store
 checker_linux
